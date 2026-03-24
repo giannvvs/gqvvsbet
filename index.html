@@ -1,0 +1,1942 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>GqvvsBet</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--bg:#0a0c16;--sur:#111526;--card:#161b2e;--c2:#1c2235;--ac:#e53935;--gr:#10b981;--az:#6366f1;--or:#f59e0b;--tx:#f8fafc;--sb:#64748b;--s2:#94a3b8;--bd:#1e2540;--sha:0 2px 12px rgba(0,0,0,.5);}
+[data-theme="light"]{--bg:#f0f2f7;--sur:#fff;--card:#fff;--c2:#f5f7fb;--ac:#e53935;--gr:#059669;--az:#4f46e5;--or:#d97706;--tx:#0f172a;--sb:#475569;--s2:#64748b;--bd:#dde1ea;--sha:0 2px 8px rgba(0,0,0,.1);}
+*{transition:background .15s,color .15s,border-color .15s;}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;min-height:100vh;overflow-x:hidden;}
+header{background:var(--sur);display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:200;}
+.logo{display:flex;align-items:center;gap:8px;font-size:1.1rem;font-weight:900;color:var(--ac);}
+.logo-i{width:30px;height:30px;background:var(--ac);border-radius:8px;display:flex;align-items:center;justify-content:center;}
+.hr{display:flex;align-items:center;gap:8px;}
+.cpill{background:var(--card);border:1px solid var(--bd);padding:5px 10px;border-radius:20px;font-size:.7rem;font-weight:600;color:var(--s2);}
+.cpill.lv{color:var(--ac);border-color:rgba(229,57,53,.3);}
+.btnref{background:var(--ac);border:none;color:#fff;padding:7px 13px;border-radius:20px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:inherit;}
+.btn-theme{background:var(--card);border:1px solid var(--bd);color:var(--tx);padding:5px 11px;border-radius:20px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+/* ── Momios ── */
+/* ── ODDS 2 columnas ── */
+.odds-wrap{border-top:1px solid var(--bd);background:var(--bg);display:grid;grid-template-columns:1fr 1px 1fr;}
+.odds-col{padding:8px 10px;display:flex;flex-direction:column;gap:8px;}
+.odds-col-div{background:var(--bd);width:1px;}
+.odds-mkt{display:flex;flex-direction:column;gap:3px;}
+.odds-mkt-lbl{font-size:.58rem;font-weight:800;color:var(--sb);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:4px;}
+.odds-row{display:flex;gap:4px;}
+.odd-wrap{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0;}
+.odd-btn{width:100%;display:flex;flex-direction:column;align-items:center;gap:1px;background:var(--c2);border:1.5px solid var(--bd);border-radius:9px 9px 0 0;padding:6px 3px;cursor:pointer;font-family:inherit;transition:all .15s;}
+.odd-btn:hover{border-color:var(--az);background:rgba(99,102,241,.1);}
+.odd-btn.sel{border-color:var(--az);background:rgba(99,102,241,.18);}
+.odd-pronostico{width:100%;background:rgba(229,57,53,.12);border:1px solid rgba(229,57,53,.3);border-top:none;border-radius:0 0 9px 9px;padding:2px 3px;font-size:.56rem;font-weight:800;color:var(--ac);cursor:pointer;font-family:inherit;text-align:center;transition:all .12s;}
+.odd-pronostico:hover{background:rgba(229,57,53,.25);}
+.odd-lbl{font-size:.54rem;font-weight:800;color:var(--sb);text-transform:uppercase;letter-spacing:.04em;text-align:center;}
+.odd-val{font-size:.82rem;font-weight:900;color:var(--or);}
+.odd-btn.sel .odd-val{color:var(--az);}
+.odd-dec{font-size:.56rem;color:var(--s2);}
+.odds-sk{font-size:.65rem;color:var(--sb);padding:5px 10px 7px;border-top:1px solid var(--bd);font-style:italic;}
+.odds-est{font-size:.53rem;color:var(--s2);font-style:italic;}
+[data-theme="light"] .odds-wrap{background:var(--c2);}
+[data-theme="light"] .odd-btn{background:var(--sur);}
+/* ── Parlay Ticket FAB ── */
+.tk-fab{position:fixed;bottom:18px;right:18px;z-index:500;background:linear-gradient(135deg,var(--az),#7c3aed);border:none;color:#fff;width:auto;min-width:54px;height:auto;padding:8px 10px;border-radius:20px;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 18px rgba(99,102,241,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-family:inherit;}
+.tk-bdg{position:absolute;top:-3px;right:-3px;background:var(--ac);color:#fff;font-size:.6rem;font-weight:900;min-width:19px;height:19px;border-radius:10px;display:flex;align-items:center;justify-content:center;padding:0 4px;border:2px solid var(--bg);}
+/* ── Ticket Panel ── */
+.tk-panel{position:fixed;bottom:88px;right:18px;z-index:600;width:330px;max-height:72vh;background:var(--sur);border:1px solid var(--bd);border-radius:18px;box-shadow:0 8px 40px rgba(0,0,0,.4);display:none;flex-direction:column;overflow:hidden;}
+.tk-panel.open{display:flex;}
+.tk-head{padding:13px 16px;background:linear-gradient(135deg,var(--az),#7c3aed);color:#fff;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:.92rem;flex-shrink:0;}
+.tk-close-btn{background:rgba(255,255,255,.2);border:none;color:#fff;width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;}
+.tk-body{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:6px;}
+.tk-pick{background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:9px 11px;display:flex;align-items:center;gap:8px;}
+.tk-pick-info{flex:1;min-width:0;}
+.tk-pick-match{font-size:.62rem;color:var(--sb);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tk-pick-sel{font-size:.8rem;font-weight:800;color:var(--tx);margin-top:2px;}
+.tk-pick-odd{font-size:.85rem;font-weight:900;color:var(--az);white-space:nowrap;}
+.tk-remove{background:none;border:none;color:var(--sb);cursor:pointer;font-size:.95rem;padding:2px;line-height:1;flex-shrink:0;}
+.tk-empty{text-align:center;color:var(--sb);font-size:.8rem;padding:24px 12px;line-height:1.6;}
+.tk-footer{padding:12px 14px;border-top:1px solid var(--bd);flex-shrink:0;background:var(--sur);}
+.tk-stat-row{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:var(--sb);margin-bottom:5px;}
+.tk-stat-row b{color:var(--tx);font-size:.78rem;}
+.tk-cuota-big{font-size:1.5rem;font-weight:900;color:var(--az);text-align:center;margin:6px 0;}
+.tk-stake-wrap{display:flex;align-items:center;gap:6px;background:var(--card);border:1.5px solid var(--bd);border-radius:11px;padding:5px 11px;margin:8px 0;}
+.tk-stake-wrap:focus-within{border-color:var(--az);}
+.tk-stake-sym{font-size:.85rem;font-weight:700;color:var(--sb);}
+.tk-stake-inp{flex:1;background:none;border:none;color:var(--tx);font-family:inherit;font-size:.9rem;font-weight:700;outline:none;width:100%;}
+.tk-payout-box{background:linear-gradient(135deg,rgba(99,102,241,.15),rgba(124,58,237,.15));border:1.5px solid var(--az);border-radius:12px;padding:10px 14px;text-align:center;}
+.tk-payout-lbl{font-size:.65rem;color:var(--sb);text-transform:uppercase;letter-spacing:.06em;}
+.tk-payout-amt{font-size:1.4rem;font-weight:900;color:var(--az);}
+.tk-payout-gan{font-size:.68rem;color:var(--gr);margin-top:2px;}
+.tk-btn-row{display:flex;gap:7px;margin-top:8px;}
+.tk-btn-clear{flex:1;background:none;border:1px solid var(--bd);border-radius:9px;padding:7px;color:var(--sb);font-size:.72rem;cursor:pointer;font-family:inherit;}
+.tk-btn-share{flex:1;background:var(--az);border:none;border-radius:9px;padding:7px;color:#fff;font-size:.72rem;cursor:pointer;font-family:inherit;font-weight:700;}
+/* Tema claro */
+[data-theme="light"] .mc,[data-theme="light"] .il,[data-theme="light"] .fi{box-shadow:var(--sha);}
+[data-theme="light"] .chip{background:var(--card);border-color:var(--bd);color:var(--sb);}
+[data-theme="light"] .chip.act,[data-theme="light"] .lchip.act{background:var(--ac);border-color:var(--ac);color:#fff;}
+[data-theme="light"] .tk-panel{box-shadow:0 8px 40px rgba(0,0,0,.18);}
+.strow{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:14px 14px 0;max-width:860px;margin:0 auto;}
+.stile{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:13px;display:flex;flex-direction:column;gap:3px;position:relative;overflow:hidden;}
+.stile::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;}
+.stile.tot::before{background:var(--ac);}.stile.lv::before{background:var(--ac);}.stile.pd::before{background:var(--az);}
+.snum{font-size:1.8rem;font-weight:900;line-height:1;}
+.stile.tot .snum{color:var(--ac);}.stile.lv .snum{color:var(--ac);}.stile.pd .snum{color:var(--az);}
+.slbl{font-size:.6rem;font-weight:700;color:var(--sb);text-transform:uppercase;letter-spacing:1px;}
+.dot{display:inline-block;width:6px;height:6px;background:var(--ac);border-radius:50%;animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
+.swrap{padding:10px 14px 0;max-width:860px;margin:0 auto;}
+.sbox{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:9px 14px;}
+.sbox:focus-within{border-color:var(--ac);}
+.sbox input{background:none;border:none;color:var(--tx);font-size:.88rem;flex:1;outline:none;font-family:inherit;}
+.sbox input::placeholder{color:var(--sb);}
+.scl{background:none;border:none;color:var(--sb);cursor:pointer;font-size:1rem;padding:0;display:none;}
+.calw{padding:10px 14px 0;max-width:860px;margin:0 auto;}
+.cal{display:flex;align-items:center;gap:6px;}
+.carr{background:var(--card);border:1px solid var(--bd);color:var(--s2);width:36px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:1.2rem;font-weight:900;transition:all .2s;}
+.carr:hover{border-color:var(--ac);color:var(--ac);}
+.cscr{display:flex;gap:6px;overflow:hidden;flex:1;}
+.cday{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:48px;height:56px;background:var(--card);border:1px solid var(--bd);border-radius:12px;cursor:pointer;flex:1;max-width:72px;user-select:none;transition:all .2s;}
+.cday:hover{border-color:rgba(229,57,53,.4);}
+.cday.act{background:var(--ac);border-color:var(--ac);}
+.cdow{font-size:.56rem;font-weight:700;text-transform:uppercase;color:var(--s2);}
+.cday.act .cdow{color:rgba(255,255,255,.8);}
+.cday.hoy .cdow{color:var(--ac);}
+.cday.act.hoy .cdow{color:rgba(255,255,255,.9);}
+.cnum{font-size:.92rem;font-weight:800;color:var(--tx);}
+.cday.act .cnum{color:#fff;}
+.cmes{font-size:.52rem;color:var(--sb);font-weight:600;}
+.cday.act .cmes{color:rgba(255,255,255,.7);}
+.lbar{display:flex;gap:5px;overflow-x:auto;padding:10px 14px 0;scrollbar-width:none;max-width:860px;margin:0 auto;}
+.lbar::-webkit-scrollbar{display:none;}
+.lchip{background:var(--card);border:1px solid var(--bd);color:var(--s2);padding:5px 11px;border-radius:20px;font-size:.72rem;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;font-family:inherit;}
+.lchip:hover{border-color:var(--ac);color:var(--ac);}
+.lchip.act{background:var(--ac);color:#fff;border-color:var(--ac);}
+.tabwrap{max-width:860px;margin:0 auto;}
+.tabs{display:flex;border-bottom:1px solid var(--bd);background:var(--sur);margin-top:10px;}
+.tab{flex:1;padding:11px 8px;background:transparent;border:none;color:var(--sb);font-size:.8rem;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:5px;border-bottom:2px solid transparent;transition:all .2s;}
+.tab:hover{color:var(--ac);}
+.tab.act{color:var(--ac);border-bottom-color:var(--ac);}
+.bdg{padding:2px 6px;border-radius:20px;font-size:.62rem;font-weight:800;}
+.bdg-r{background:rgba(229,57,53,.2);color:var(--ac);}
+.bdg-b{background:rgba(99,102,241,.2);color:var(--az);}
+main{max-width:860px;margin:0 auto;padding:0 10px 50px;}
+.sec{display:none;}.sec.act{display:block;}
+.evsec{padding:14px 0 6px;}
+.sh{display:flex;justify-content:space-between;align-items:center;padding:0 2px;margin-bottom:10px;}
+.st{display:flex;align-items:center;gap:7px;font-size:.85rem;font-weight:800;}
+.vt{font-size:.72rem;color:var(--ac);font-weight:600;background:none;border:none;cursor:pointer;font-family:inherit;}
+.evscr{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;}
+.evscr::-webkit-scrollbar{display:none;}
+.clv{background:var(--card);border:1px solid rgba(229,57,53,.25);border-top:2px solid var(--ac);border-radius:14px;padding:13px 15px;min-width:230px;flex-shrink:0;cursor:pointer;transition:transform .15s;}
+.clv:hover{transform:translateY(-2px);}
+.lvtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.ltag{font-size:.6rem;font-weight:700;color:var(--s2);text-transform:uppercase;max-width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mbdg{background:rgba(229,57,53,.15);color:var(--ac);padding:2px 7px;border-radius:10px;font-size:.65rem;font-weight:800;display:flex;align-items:center;gap:3px;}
+.lvt{display:flex;align-items:center;justify-content:space-between;gap:6px;}
+.lvtm{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;}
+.lvl{width:32px;height:32px;object-fit:contain;}
+.lvlp{width:32px;height:32px;background:var(--bd);border-radius:50%;}
+.lvn{font-size:.66rem;font-weight:700;text-align:center;max-width:75px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lvsb{text-align:center;}
+.lvsc{font-size:1.5rem;font-weight:900;color:var(--ac);letter-spacing:2px;}
+.lvsbl{font-size:.58rem;color:var(--sb);}
+.mc{display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;align-items:center;background:var(--card);border:1px solid var(--bd);border-radius:12px;margin-bottom:5px;cursor:pointer;transition:border-color .2s;overflow:hidden;}.mc>.scol{padding:11px 8px 11px 12px;}.mc>.tcol{padding:11px 0;}.mc>.pcol{padding:11px 12px 11px 8px;}
+.mc:hover{border-color:rgba(229,57,53,.4);transform:translateX(2px);}
+.mc.il{border-left:3px solid var(--ac);}
+.mc.fi{opacity:.65;}
+.scol{display:flex;flex-direction:column;align-items:center;min-width:44px;}
+.spill{padding:3px 6px;border-radius:7px;font-size:.6rem;font-weight:700;text-align:center;white-space:nowrap;}
+.spill.lv{background:rgba(229,57,53,.15);color:var(--ac);}
+.spill.ft{background:rgba(100,116,139,.1);color:var(--s2);}
+.spill.pr{background:rgba(229,57,53,.08);color:var(--ac);}
+.spill.mt{background:rgba(99,102,241,.15);color:var(--az);}
+.spill.su{background:rgba(168,85,247,.15);color:#a855f7;}
+.ms{font-size:.58rem;color:var(--ac);font-weight:700;margin-top:2px;}
+.tcol{flex:1;display:flex;flex-direction:column;gap:7px;}
+.tr{display:flex;align-items:center;gap:7px;}
+.tls{width:20px;height:20px;object-fit:contain;flex-shrink:0;}
+.tlp{width:20px;height:20px;background:var(--bd);border-radius:50%;flex-shrink:0;}
+.tn{font-size:.82rem;font-weight:700;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tsc{font-size:.88rem;font-weight:800;color:var(--ac);min-width:14px;text-align:right;}
+.sdiv{height:1px;background:var(--bd);}
+.pcol{display:flex;align-items:center;}
+.btnp{background:rgba(229,57,53,.1);border:1px solid rgba(229,57,53,.25);color:var(--ac);border-radius:8px;padding:8px 10px;font-size:.72rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;}
+.btnp:hover{background:var(--ac);color:#fff;}
+.lgh{display:flex;align-items:center;gap:7px;padding:10px 4px 6px;border-bottom:1px solid var(--bd);margin-bottom:4px;}
+.lgn{font-size:.72rem;font-weight:700;color:var(--s2);text-transform:uppercase;letter-spacing:.5px;flex:1;}
+.lgc{font-size:.62rem;color:var(--sb);background:var(--card);padding:2px 7px;border-radius:10px;}
+.hcard{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:7px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.hnum{width:26px;height:26px;background:rgba(229,57,53,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:var(--ac);flex-shrink:0;}
+.hinfo{flex:1;min-width:0;}
+.hinfo h3{font-size:.85rem;font-weight:700;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hinfo span{font-size:.7rem;color:var(--s2);}
+.btnv{background:var(--c2);border:1px solid var(--bd);color:var(--s2);border-radius:8px;padding:5px 11px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .2s;}
+.btnv:hover{border-color:var(--ac);color:var(--ac);}
+.loading{text-align:center;padding:40px 20px;color:var(--sb);}
+.spin{display:inline-block;width:26px;height:26px;border:3px solid var(--bd);border-top-color:var(--ac);border-radius:50%;animation:sp .8s linear infinite;margin-bottom:10px;}
+@keyframes sp{to{transform:rotate(360deg)}}
+.empty{text-align:center;color:var(--sb);padding:40px 20px;font-size:.88rem;line-height:2;}
+.nosr{text-align:center;padding:30px;color:var(--sb);font-size:.88rem;}
+.ibar{padding:8px 2px;color:var(--sb);font-size:.78rem;}
+.errbx{background:rgba(229,57,53,.08);border:1px solid rgba(229,57,53,.25);border-radius:12px;padding:16px;margin:14px 0;text-align:center;color:var(--s2);font-size:.82rem;line-height:1.8;}
+#det{display:none;position:fixed;inset:0;background:var(--bg);z-index:500;overflow-y:auto;animation:sir .28s cubic-bezier(.25,.46,.45,.94);}
+#det.vis{display:block;}
+@keyframes sir{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.dh{background:var(--sur);padding:12px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:10;}
+.bbk{background:var(--card);border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:7px 13px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:5px;transition:all .2s;flex-shrink:0;}
+.bbk:hover{border-color:var(--ac);color:var(--ac);}
+.dlt{font-size:.72rem;color:var(--s2);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sboard{background:linear-gradient(135deg,#0f1220,#161b2e);padding:20px 16px 16px;text-align:center;border-bottom:1px solid var(--bd);}
+.ldet{font-size:.7rem;color:var(--s2);margin-bottom:12px;}
+.tbig{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:420px;margin:0 auto;}
+.tbd{display:flex;flex-direction:column;align-items:center;gap:7px;flex:1;}
+.tbd img{width:52px;height:52px;object-fit:contain;}
+.tbdp{width:52px;height:52px;background:var(--bd);border-radius:50%;}
+.tbn{font-size:.85rem;font-weight:800;text-align:center;}
+.scnt{display:flex;flex-direction:column;align-items:center;gap:5px;flex-shrink:0;}
+.sbig{font-size:2.6rem;font-weight:900;color:var(--ac);letter-spacing:4px;line-height:1;}
+.spst{padding:4px 10px;border-radius:20px;font-size:.68rem;font-weight:800;}
+.spst.lv{background:rgba(229,57,53,.2);color:var(--ac);display:flex;align-items:center;gap:5px;}
+.spst.ft{background:rgba(100,116,139,.12);color:var(--s2);}
+.spst.pr{background:rgba(245,158,11,.1);color:var(--or);}
+.btnpsb{margin-top:12px;background:rgba(229,57,53,.12);border:1px solid rgba(229,57,53,.3);color:var(--ac);border-radius:20px;padding:6px 16px;font-size:.75rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;display:inline-flex;align-items:center;gap:5px;}
+.btnpsb:hover{background:var(--ac);color:#fff;}
+.dtabw{background:var(--sur);border-bottom:1px solid var(--bd);overflow-x:auto;scrollbar-width:none;position:sticky;top:53px;z-index:9;}
+.dtabw::-webkit-scrollbar{display:none;}
+.dtabs{display:flex;min-width:max-content;}
+.dtab{padding:11px 16px;background:transparent;border:none;color:var(--sb);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;}
+.dtab:hover{color:var(--ac);}
+.dtab.act{color:var(--ac);border-bottom-color:var(--ac);}
+.dpanel{padding:14px 14px 30px;display:none;max-width:860px;margin:0 auto;}
+.dpanel.act{display:block;}
+.aihd{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:14px 16px;background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(229,57,53,.08));border:1px solid rgba(99,102,241,.2);border-radius:14px;}
+.aibdg{background:linear-gradient(135deg,var(--az),var(--ac));color:#fff;padding:4px 10px;border-radius:20px;font-size:.65rem;font-weight:800;letter-spacing:.5px;}
+.aitl{font-size:.95rem;font-weight:900;}
+.aisub{font-size:.68rem;color:var(--s2);margin-top:2px;}
+.aibl{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:10px;}
+.aiblt{padding:10px 14px;font-size:.72rem;font-weight:800;color:var(--s2);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd);background:rgba(255,255,255,.02);}
+.airw{display:flex;align-items:center;padding:10px 14px;gap:12px;border-bottom:1px solid rgba(30,37,64,.7);}
+.airw:last-child{border-bottom:none;}
+.airl{font-size:.77rem;font-weight:600;color:var(--s2);flex:0 0 145px;}
+.airr{flex:1;display:flex;flex-direction:column;gap:5px;}
+.abw{display:flex;align-items:center;gap:7px;}
+.abbg{flex:1;height:7px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden;}
+.abf{height:100%;border-radius:4px;transition:width .8s;}
+.abf.gn{background:var(--gr);}.abf.rd{background:var(--ac);}.abf.bl{background:var(--az);}.abf.or{background:var(--or);}
+.apg{font-size:.75rem;font-weight:800;min-width:32px;text-align:right;color:var(--gr);}
+.apr{font-size:.75rem;font-weight:800;min-width:32px;text-align:right;color:var(--ac);}
+.apb{font-size:.75rem;font-weight:800;min-width:32px;text-align:right;color:var(--az);}
+.apo{font-size:.75rem;font-weight:800;min-width:32px;text-align:right;color:var(--or);}
+.ao3{display:flex;gap:8px;}
+.ao{display:flex;flex-direction:column;align-items:center;background:var(--c2);border:1px solid var(--bd);border-radius:10px;padding:8px 10px;flex:1;}
+.aol{font-size:.6rem;font-weight:700;color:var(--s2);margin-bottom:4px;text-align:center;}
+.aov{font-size:1.1rem;font-weight:900;}
+.aov.hm{color:var(--ac);}.aov.dr{color:var(--or);}.aov.aw{color:var(--az);}
+.dcr{display:flex;gap:8px;}
+.dci{flex:1;background:var(--c2);border:1px solid var(--bd);border-radius:10px;padding:9px 10px;text-align:center;}
+.dcl{font-size:.62rem;font-weight:800;color:var(--sb);text-transform:uppercase;letter-spacing:.5px;}
+.dcv{font-size:1.05rem;font-weight:900;color:var(--gr);margin-top:2px;}
+.dcb{height:4px;border-radius:2px;background:rgba(16,185,129,.2);margin-top:5px;overflow:hidden;}
+.dcbf{height:100%;background:var(--gr);border-radius:2px;transition:width .8s;}
+.stbl{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:10px;}
+.stblt{text-align:center;padding:10px;font-size:.75rem;font-weight:800;color:var(--s2);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd);}
+.pswp{padding:10px 14px 12px;}
+.psbc{display:flex;border-radius:6px;overflow:hidden;height:28px;margin-bottom:6px;}
+.psl{background:var(--ac);display:flex;align-items:center;padding:0 8px;font-size:.75rem;font-weight:800;color:#fff;min-width:34px;}
+.psr{background:var(--gr);display:flex;align-items:center;justify-content:flex-end;padding:0 8px;font-size:.75rem;font-weight:800;color:#fff;flex:1;min-width:34px;}
+.pst{display:flex;justify-content:space-between;}
+.srw{display:flex;align-items:center;padding:8px 14px;gap:10px;border-bottom:1px solid rgba(30,37,64,.8);}
+.srw:last-child{border-bottom:none;}
+.svl{font-size:.82rem;font-weight:800;min-width:70px;}
+.svr{font-size:.82rem;font-weight:800;min-width:70px;text-align:right;}
+.sn{flex:1;text-align:center;font-size:.72rem;color:var(--s2);}
+.pw{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:800;background:rgba(16,185,129,.12);color:var(--gr);}
+.pl{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:800;background:rgba(229,57,53,.1);color:var(--ac);}
+.pd{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.72rem;font-weight:800;background:rgba(100,116,139,.1);color:var(--s2);}
+.tabbl{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-bottom:10px;}
+.tabblt{padding:10px 14px;font-size:.75rem;font-weight:800;color:var(--s2);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--bd);}
+.tabr{display:grid;grid-template-columns:24px 1fr 26px 26px 26px 26px 28px 34px;gap:3px;align-items:center;padding:7px 10px;border-bottom:1px solid rgba(30,37,64,.5);font-size:.73rem;}
+.tabr:last-child{border-bottom:none;}
+.tabr.hdr{font-size:.62rem;color:var(--sb);font-weight:700;padding:5px 10px;}
+.tabr.hlh{background:rgba(229,57,53,.06);border-left:2px solid var(--ac);}
+.tabr.hla{background:rgba(99,102,241,.06);border-left:2px solid var(--az);}
+.tpos{font-weight:800;color:var(--s2);text-align:center;}
+.tpos.t3{color:var(--or);}.tpos.t6{color:var(--gr);}
+.ttm{display:flex;align-items:center;gap:5px;overflow:hidden;}
+.ttmp{width:15px;height:15px;background:var(--bd);border-radius:50%;flex-shrink:0;}
+.ttmn{font-size:.73rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tnum{text-align:center;color:var(--s2);font-weight:600;}
+.tpts{text-align:center;font-weight:800;}
+.mov{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;justify-content:center;align-items:flex-end;z-index:999;padding:16px;}
+.mov.hid{display:none;}
+.mod{background:var(--sur);border:1px solid var(--bd);border-radius:20px 20px 16px 16px;padding:22px 20px;width:100%;max-width:440px;animation:su .25s ease;}
+@keyframes su{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.mhd{width:36px;height:4px;background:var(--bd);border-radius:2px;margin:-6px auto 14px;}
+.mod h2{font-size:1rem;font-weight:800;margin-bottom:4px;color:var(--ac);}
+.oprow{display:flex;gap:8px;margin-top:10px;}
+.opbtn{flex:1;padding:10px 6px;border-radius:10px;border:1px solid var(--bd);background:var(--c2);color:var(--tx);font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s;text-align:center;}
+.opbtn:hover,.opbtn.sel{background:var(--ac);border-color:var(--ac);color:#fff;}
+.mrow{display:flex;align-items:center;gap:10px;margin-top:12px;}
+.mrow label{font-size:.72rem;color:var(--s2);font-weight:600;}
+.mrow input{background:var(--c2);border:1px solid var(--bd);color:var(--tx);border-radius:8px;padding:8px 11px;font-size:.85rem;width:90px;font-family:inherit;outline:none;}
+.btng{background:var(--gr);color:#fff;border:none;border-radius:10px;padding:10px 20px;font-weight:700;cursor:pointer;font-family:inherit;font-size:.88rem;margin-top:14px;width:100%;}
+.btncan{background:var(--card);color:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:10px 12px;font-weight:600;cursor:pointer;font-family:inherit;font-size:.88rem;margin-top:8px;width:100%;}
+.drow{background:var(--card);border-radius:10px;padding:9px 13px;margin-bottom:6px;}
+.dlbl{font-size:.68rem;color:var(--sb);margin-bottom:2px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;}
+.dval{font-size:.9rem;font-weight:700;}
+
+/* ══ TICKET FLOTANTE ══ */
+#tkp{position:fixed;bottom:18px;left:18px;z-index:450;width:min(310px,calc(100vw - 32px));}
+.tkbub{background:var(--ac);border-radius:50px;width:54px;height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 24px rgba(229,57,53,.45);margin-left:auto;font-size:1.3rem;position:relative;transition:transform .2s;}
+.tkbub:hover{transform:scale(1.05);}
+.tkbub{width:auto!important;min-width:54px;padding:8px 10px;border-radius:20px!important;flex-direction:column;gap:1px;}
+.fab-lbl{font-size:.58rem;font-weight:800;letter-spacing:.04em;color:rgba(255,255,255,.9);line-height:1;margin-top:2px;}
+/* Panel pronósticos abre arriba-izquierda */
+.tkcard{animation:tkupL .22s ease;}
+@keyframes tkupL{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* Panel parlay: asegurar que abre arriba-derecha */
+.tk-panel{bottom:88px!important;right:18px!important;left:auto!important;}
+.tkcnt{position:absolute;top:-3px;right:-3px;background:var(--or);color:#000;border-radius:50%;width:19px;height:19px;font-size:.6rem;font-weight:900;display:none;align-items:center;justify-content:center;}
+.tkcnt.vis{display:flex;}
+.tkcard{background:var(--sur);border:1px solid var(--bd);border-radius:16px;margin-bottom:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.5);animation:tkup .22s ease;}
+@keyframes tkup{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.tkhd{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;background:rgba(229,57,53,.08);border-bottom:1px solid var(--bd);}
+.tkhl{font-size:.82rem;font-weight:800;color:var(--ac);display:flex;align-items:center;gap:6px;}
+.tkhx{background:none;border:none;color:var(--sb);cursor:pointer;font-size:1rem;padding:2px 5px;border-radius:6px;transition:all .15s;}
+.tkhx:hover{background:rgba(229,57,53,.15);color:var(--ac);}
+.tkbody{max-height:260px;overflow-y:auto;padding:8px;}
+.tkitem{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 10px;margin-bottom:5px;}
+.tkiinfo{flex:1;min-width:0;}
+.tkipartido{font-size:.65rem;color:var(--s2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tkitipo{font-size:.78rem;font-weight:800;color:var(--tx);}
+.tkiprob{font-size:.72rem;font-weight:800;color:var(--gr);min-width:32px;text-align:right;}
+.tkibtn{background:none;border:none;color:var(--sb);cursor:pointer;font-size:.9rem;padding:2px 4px;border-radius:5px;transition:all .15s;flex-shrink:0;}
+.tkibtn:hover{background:rgba(229,57,53,.15);color:var(--ac);}
+.tkfoot{padding:10px 12px;border-top:1px solid var(--bd);background:rgba(0,0,0,.2);}
+.tkprob{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.tkprobl{font-size:.68rem;color:var(--s2);font-weight:600;}
+.tkprobv{font-size:1rem;font-weight:900;color:var(--or);}
+.tkbotones{display:flex;gap:6px;}
+.btn-tk-listo{flex:1;background:var(--gr);color:#fff;border:none;border-radius:8px;padding:8px 10px;font-size:.78rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.btn-tk-listo:hover{filter:brightness(1.1);}
+.btn-tk-borrar{background:rgba(229,57,53,.1);border:1px solid rgba(229,57,53,.25);color:var(--ac);border-radius:8px;padding:8px 10px;font-size:.78rem;font-weight:800;cursor:pointer;font-family:inherit;}
+.btn-tk-borrar:hover{background:var(--ac);color:#fff;}
+.btn-ag{display:inline-flex;align-items:center;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.3);color:var(--az);border-radius:6px;padding:3px 8px;font-size:.62rem;font-weight:800;cursor:pointer;font-family:inherit;transition:all .2s;white-space:nowrap;flex-shrink:0;}
+.btn-ag:hover{background:var(--az);color:#fff;}
+.btn-ag.added{background:rgba(16,185,129,.1);border-color:rgba(16,185,129,.3);color:var(--gr);cursor:default;}
+.tkguard{border:2px solid var(--bd);border-radius:14px;padding:13px 14px;margin-bottom:10px;}
+.tkguard.pendiente{border-color:var(--or);background:rgba(245,158,11,.04);}
+.tkguard.ganado{border-color:var(--gr);background:rgba(16,185,129,.04);}
+.tkguard.perdido{border-color:var(--ac);background:rgba(229,57,53,.04);}
+.tkgtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.tkgestado{padding:3px 9px;border-radius:20px;font-size:.65rem;font-weight:800;}
+.tkgestado.pendiente{background:rgba(245,158,11,.15);color:var(--or);}
+.tkgestado.ganado{background:rgba(16,185,129,.15);color:var(--gr);}
+.tkgestado.perdido{background:rgba(229,57,53,.15);color:var(--ac);}
+.tkgsel{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:6px 10px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.tkgslbl{font-size:.72rem;font-weight:700;flex:1;}
+.tkgsprob{font-size:.7rem;color:var(--s2);white-space:nowrap;}
+.tkgfooter{display:flex;align-items:center;justify-content:space-between;margin-top:8px;flex-wrap:wrap;gap:6px;}
+.tkgprob{font-size:.8rem;font-weight:900;color:var(--or);}
+.tkgbtns{display:flex;gap:5px;}
+.btn-tk-edit{background:var(--c2);border:1px solid var(--bd);color:var(--s2);border-radius:7px;padding:4px 9px;font-size:.65rem;font-weight:700;cursor:pointer;font-family:inherit;}
+.btn-tk-edit:hover{border-color:var(--az);color:var(--az);}
+.btn-tk-del{background:rgba(229,57,53,.08);border:1px solid rgba(229,57,53,.2);color:var(--ac);border-radius:7px;padding:4px 9px;font-size:.65rem;font-weight:700;cursor:pointer;font-family:inherit;}
+.btn-tk-del:hover{background:var(--ac);color:#fff;}
+
+
+/* ── Últimos 5 ── */
+.l5-wrap{padding:10px 12px;}
+.l5-team{margin-bottom:14px;}
+.l5-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.l5-logo{width:26px;height:26px;object-fit:contain;}
+.l5-name{font-weight:800;font-size:.85rem;color:var(--tx);}
+.l5-games{display:flex;gap:5px;flex-wrap:wrap;}
+.l5-g{display:flex;flex-direction:column;align-items:center;gap:3px;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:6px 8px;min-width:52px;cursor:default;}
+.l5-res{font-size:.85rem;font-weight:900;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;}
+.l5-res.g{background:#10b981;}
+.l5-res.e{background:#f59e0b;}
+.l5-res.p{background:#ef4444;}
+.l5-sc{font-size:.65rem;font-weight:700;color:var(--tx);}
+.l5-rival{font-size:.55rem;color:var(--sb);max-width:52px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;}
+.l5-forma{display:flex;gap:4px;align-items:center;margin-top:4px;}
+.l5-forma-dot{width:10px;height:10px;border-radius:50%;}
+.l5-racha{font-size:.7rem;color:var(--sb);margin-top:4px;}
+/* ── AI mejorado ── */
+.ai-veredicto{background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(124,58,237,.08));border:1.5px solid var(--az);border-radius:14px;padding:12px 14px;margin-bottom:12px;}
+.ai-verd-lbl{font-size:.6rem;font-weight:800;color:var(--az);text-transform:uppercase;letter-spacing:.08em;}
+.ai-verd-txt{font-size:1rem;font-weight:900;color:var(--tx);margin:4px 0;}
+.ai-verd-sub{font-size:.72rem;color:var(--sb);line-height:1.5;}
+.ai-tip{background:var(--card);border-left:3px solid var(--gr);border-radius:0 10px 10px 0;padding:8px 12px;margin:6px 0;font-size:.75rem;color:var(--tx);line-height:1.5;}
+.ai-tip.warn{border-left-color:var(--or);}
+.ai-tip.bad{border-left-color:var(--ac);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><div class="logo-i">⚽</div>GqvvsBet</div>
+  <div class="hr">
+    <button class="btn-theme" id="btnTheme" onclick="toggleTheme()">🌙 Oscuro</button>
+    <div class="cpill" id="ctxt">⏱ 30s</div>
+    <button class="btnref" onclick="cargar(true)">↻ Actualizar</button>
+  </div>
+</header>
+
+<div class="strow">
+  <div class="stile tot"><span>🗓</span><div class="snum" id="stot">—</div><div class="slbl">Disponibles</div></div>
+  <div class="stile lv"><span><span class="dot"></span></span><div class="snum" id="slv">—</div><div class="slbl">En Juego</div></div>
+  <div class="stile pd"><span>⏰</span><div class="snum" id="spd">—</div><div class="slbl">Pendientes</div></div>
+</div>
+
+<div class="swrap">
+  <div class="sbox">
+    <span>🔍</span>
+    <input type="text" id="sinp" placeholder="Buscar equipo o liga..." oninput="onSrch(this.value)"/>
+    <button class="scl" id="scl" onclick="clrSrch()">✕</button>
+  </div>
+</div>
+
+<div class="calw">
+  <div class="cal">
+    <button class="carr" onclick="mvCal(-1)">‹</button>
+    <div class="cscr" id="cscr"></div>
+    <button class="carr" onclick="mvCal(1)">›</button>
+  </div>
+</div>
+
+<div class="lbar" id="lbar"><button class="lchip act" onclick="filLiga('todas')">🌎 Todas</button></div>
+
+<div class="tabwrap">
+  <div class="tabs">
+    <button class="tab act" onclick="showTab('partidos')" id="tab-partidos">🗓 Partidos <span class="bdg bdg-r" id="bdg-p">—</span></button>
+    <button class="tab" onclick="showTab('envivo')" id="tab-envivo">🔴 En vivo <span class="bdg bdg-r" id="bdg-e">—</span></button>
+    <button class="tab" onclick="showTab('historial')" id="tab-historial">📋 Historial <span class="bdg bdg-b" id="bdg-h">0</span></button>
+    <button class="tab" onclick="showTab('pendientes')" id="tab-pendientes">🎟️ Tickets <span class="bdg bdg-o" id="bdg-tk">0</span></button>
+  </div>
+</div>
+
+<main>
+  <section id="sec-partidos" class="sec act">
+    <div class="evsec" id="evsec" style="display:none">
+      <div class="sh"><div class="st"><span class="dot"></span> EN VIVO AHORA</div>
+      <button class="vt" onclick="showTab('envivo')">Ver Todo</button></div>
+      <div class="evscr" id="evscr"></div>
+    </div>
+    <div id="lp"><div class="loading"><div class="spin"></div><br>Cargando todas las ligas...</div></div>
+  </section>
+  <section id="sec-envivo" class="sec"><div class="ibar" id="iev"></div><div id="le"></div></section>
+  <section id="sec-historial" class="sec"><div class="ibar" id="ih"></div><div id="lh"></div></section>
+  <section id="sec-pendientes" class="sec"><div class="ibar" id="ipend" style="padding:8px 2px;color:var(--sb);font-size:.78rem;"></div><div id="lpend"></div></section>
+</main>
+
+<!-- TICKET FLOTANTE -->
+<div id="tkp">
+  <div id="tkcard" class="tkcard" style="display:none">
+    <div class="tkhd" style="background:linear-gradient(135deg,var(--ac),#c62828);">
+      <span class="tkhl">📊 Pronósticos <span id="tkcount" style="background:rgba(229,57,53,.2);color:var(--ac);padding:1px 7px;border-radius:10px;font-size:.65rem;">0</span></span>
+      <button class="tkhx" onclick="toggleTicket()">✕</button>
+    </div>
+    <div class="tkbody" id="tkbody"></div>
+    <div class="tkfoot">
+      <div class="tkprob">
+        <span class="tkprobl">Probabilidad combinada:</span>
+        <span class="tkprobv" id="tkprobval">—</span>
+      </div>
+      <div class="tkbotones">
+        <button class="btn-tk-listo" onclick="ticketListo()">✅ LISTO</button>
+        <button class="btn-tk-borrar" onclick="borrarTicketActivo()">🗑 Borrar todo</button>
+      </div>
+    </div>
+  </div>
+  <div class="tkbub" onclick="toggleTicket()">
+  📊<span class="tkcnt" id="tkcnt"></span>
+  <span class="fab-lbl">Pronósticos</span>
+</div>
+</div>
+
+<!-- DETALLE -->
+<div id="det">
+  <div class="dh">
+    <button class="bbk" onclick="cerrarDet()">← Regresar</button>
+    <span class="dlt" id="dltag"></span>
+  </div>
+  <div class="sboard">
+    <div class="ldet" id="dldet"></div>
+    <div class="tbig">
+      <div class="tbd">
+        <img id="dll" src="" style="display:none" onerror="this.style.display='none'" loading="lazy"/>
+        <div id="dllp" class="tbdp"></div>
+        <span class="tbn" id="dnl"></span>
+      </div>
+      <div class="scnt">
+        <div class="sbig" id="dsc"></div>
+        <div class="spst" id="dstp"></div>
+      </div>
+      <div class="tbd">
+        <img id="dlv" src="" style="display:none" onerror="this.style.display='none'" loading="lazy"/>
+        <div id="dlvp" class="tbdp"></div>
+        <span class="tbn" id="dnv"></span>
+      </div>
+    </div>
+    <button class="btnpsb" onclick="abrirModal()">📝 Hacer pronóstico</button>
+  </div>
+  <div class="dtabw"><div class="dtabs" id="dtabs"></div></div>
+  <div id="dp-analisis" class="dpanel act"></div>
+  <div id="dp-ai"       class="dpanel"></div>
+  <div id="dp-stats"    class="dpanel"></div>
+  <div id="dp-last5"    class="dpanel"></div>
+  <div id="dp-tabla"    class="dpanel"></div>
+</div>
+
+<!-- MODAL PRONÓSTICO -->
+<div id="mop" class="mov hid">
+  <div class="mod">
+    <div class="mhd"></div>
+    <h2>📝 Tu pronóstico</h2>
+    <p style="font-size:.82rem;color:var(--s2);margin-top:4px" id="mptit"></p>
+    <div class="oprow" id="mops"></div>
+    <div class="mrow"><label>Marcador estimado:</label><input type="text" id="mmrc" placeholder="ej: 2-1" maxlength="7"/></div>
+    <button class="btng" onclick="guardar()">✅ Guardar pronóstico</button>
+    <button class="btncan" onclick="cerrarModal()">Cancelar</button>
+  </div>
+</div>
+
+<!-- MODAL HISTORIAL DETALLE -->
+<div id="modh" class="mov hid">
+  <div class="mod">
+    <div class="mhd"></div>
+    <h2>📋 Detalle del Pronóstico</h2>
+    <div id="dhcont" style="margin-top:12px"></div>
+    <button class="btncan" style="margin-top:4px" onclick="document.getElementById('modh').classList.add('hid')">Cerrar</button>
+  </div>
+</div>
+
+<script>
+const BASE="https://site.api.espn.com/apis/site/v2/sports/soccer";
+const DIAS=["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
+const MESES=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+const LIGAS=[
+  // ══ INGLATERRA ══
+  "eng.1","eng.2","eng.3","eng.4","eng.5","eng.league_cup","eng.w.1",
+  // ══ ESPAÑA ══
+  "esp.1","esp.2","esp.copa_del_rey","esp.super_cup","esp.w.1",
+  // ══ ALEMANIA ══
+  "ger.1","ger.2","ger.dfb_pokal","ger.super_cup",
+  // ══ ITALIA ══
+  "ita.1","ita.2","ita.coppa_italia","ita.super_cup",
+  // ══ FRANCIA ══
+  "fra.1","fra.2","fra.coupe_de_france","fra.super_cup","fra.w.1",
+  // ══ PORTUGAL ══
+  "por.1",
+  // ══ PAÍSES BAJOS ══
+  "ned.1","ned.2","ned.3","ned.cup","ned.w.1",
+  // ══ BÉLGICA ══
+  "bel.1",
+  // ══ ESCOCIA ══
+  "sco.1","sco.2","sco.3","sco.4",
+  // ══ TURQUÍA ══
+  "tur.1","tur.2",
+  // ══ GRECIA ══
+  "gre.1",
+  // ══ AUSTRIA ══
+  "aut.1","aut.2",
+  // ══ RUSIA ══
+  "rus.1",
+  // ══ ESCANDINAVIA ══
+  "swe.1","swe.2","nor.1","nor.2","nor.3","den.1","den.2","den.3","den.4","den.5","fin.1","fin.2",
+  // ══ SUIZA ══
+  "sui.1","sui.2",
+  // ══ EUROPA ESTE / OTROS ══
+  "rou.1","cze.1","isr.1","cyp.1","irl.1","nir.1","wal.1","wal.cup","mlt.1",
+  // ══ COPAS EUROPEAS UEFA ══
+  "uefa.champions","uefa.europa","uefa.europa.conf","uefa.nations",
+  // ══ MÉXICO ══
+  "mex.1","mex.2",
+  // ══ USA / CANADÁ ══
+  "usa.1","usa.w.1",
+  // ══ ARGENTINA ══
+  "arg.1","arg.2","arg.3","arg.copa",
+  // ══ BRASIL ══
+  "bra.1","bra.2","bra.3",
+  // ══ COLOMBIA ══
+  "col.1","col.2","col.copa",
+  // ══ CHILE ══
+  "chi.1","chi.2",
+  // ══ PERÚ ══
+  "per.1","per.2",
+  // ══ URUGUAY ══
+  "uru.1","uru.2",
+  // ══ ECUADOR ══
+  "ecu.1","ecu.2",
+  // ══ BOLIVIA ══
+  "bol.1","bol.copa",
+  // ══ VENEZUELA ══
+  "ven.1","ven.2",
+  // ══ PARAGUAY ══
+  "par.1","par.2",
+  // ══ COPAS SUDAMÉRICA ══
+  "conmebol.libertadores","conmebol.sudamericana",
+  // ══ CENTROAMÉRICA / CARIBE ══
+  "concacaf.leagues.cup","concacaf.champions",
+  "crc.1","slv.1","hon.1","jam.1",
+  // ══ ELIMINATORIAS MUNDIAL ══
+  "fifa.worldq.conmebol","fifa.worldq.concacaf",
+  "fifa.worldq.afc","fifa.worldq.caf","fifa.worldq.ofc",
+  // ══ ASIA ══
+  "jpn.1","chn.1","ksa.1","ind.1","ind.2","aus.1","aus.w.1",
+  "tha.1","mys.1","idn.1","sgp.1",
+  "afc.champions","afc.asian.cup",
+  // ══ ÁFRICA ══
+  "caf.champions","caf.confederation","caf.nations",
+  "nga.1","gha.1","ken.1","uga.1","zam.1","zim.1",
+  // ══ ESPECIALES ══
+  "fifa.friendly","fifa.confederations"
+];
+
+let todos=[],ligasMap={},ligaActiva="todas";
+let tkActivo=[];
+let tkGuardados=JSON.parse(localStorage.getItem("gqvvs_tickets")||"[]");
+let historial=JSON.parse(localStorage.getItem("gqvvsbet_v10")||"[]");
+let pActual=null,timer=null,cval=30,busq="";
+let fecha=new Date(),calOff=0;
+let sCache={};
+
+window.onload=()=>{renderHist();buildCal();cargar(true);actualizarBadgeTk();};
+
+function buildCal(){
+  const c=document.getElementById("cscr");c.innerHTML="";
+  const hoy=new Date();hoy.setHours(0,0,0,0);
+  const mid=Math.floor(7/2);
+  for(let i=0;i<7;i++){
+    const d=new Date(hoy);d.setDate(hoy.getDate()+calOff+i-mid);
+    const esH=d.getTime()===hoy.getTime();
+    const esA=d.toDateString()===fecha.toDateString();
+    const div=document.createElement("div");
+    div.className="cday"+(esA?" act":"")+(esH?" hoy":"");
+    div.innerHTML=`<span class="cdow">${DIAS[d.getDay()]}</span><span class="cnum">${d.getDate()}</span><span class="cmes">${MESES[d.getMonth()]}</span>`;
+    div.onclick=()=>{fecha=new Date(d);buildCal();cargar(true);};
+    c.appendChild(div);
+  }
+}
+function mvCal(d){calOff+=d;const n=new Date(fecha);n.setDate(n.getDate()+d);fecha=n;buildCal();cargar(true);}
+function fp(d){return`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`;}
+
+async function cargar(sp){
+  if(sp)document.getElementById("lp").innerHTML=`<div class="loading"><div class="spin"></div><br>Cargando partidos...</div>`;
+  todos=[];ligasMap={};
+  // SIEMPRE per-liga para garantizar lid correcto (evita nombres de liga incorrectos)
+  const ids=new Set();
+  const res=await Promise.allSettled(
+    LIGAS.map(l=>fetch(`${BASE}/${l}/scoreboard?dates=${fp(fecha)}&limit=100`)
+      .then(r=>r.ok?r.json().then(d=>({d,l})):null).catch(()=>null))
+  );
+  res.forEach(r=>{if(r.status==="fulfilled"&&r.value?.d?.events)procesarEvents(r.value.d.events,ids,r.value.l);});
+  if(!todos.length&&sp){
+    document.getElementById("lp").innerHTML=`<div class="errbx">⚠️ No se pudieron cargar los partidos.<br>Verifica tu conexión o intenta más tarde.<br><button class="btnref" style="margin-top:10px" onclick="cargar(true)">↻ Reintentar</button></div>`;
+    return;
+  }
+  buildChips();renderTodo();startTimer();loadAllOdds();
+}
+
+function procesarEvents(evs,idsSet,lidForzado){
+  evs.forEach(ev=>{
+    if(idsSet&&idsSet.has(ev.id))return;
+    if(idsSet)idsSet.add(ev.id);
+    try{
+      const comp=ev.competitions[0];
+      const st=ev.status;
+      const _LN={
+        // Inglaterra
+        "eng.1":"Premier League","eng.2":"Championship","eng.3":"League One","eng.4":"League Two",
+        "eng.5":"National League","eng.league_cup":"Carabao Cup","eng.w.1":"WSL",
+        // España
+        "esp.1":"LaLiga","esp.2":"LaLiga 2","esp.copa_del_rey":"Copa del Rey",
+        "esp.super_cup":"Supercopa de España","esp.w.1":"Liga F",
+        // Alemania
+        "ger.1":"Bundesliga","ger.2":"2. Bundesliga","ger.dfb_pokal":"DFB Pokal","ger.super_cup":"Supercopa Alemania",
+        // Italia
+        "ita.1":"Serie A","ita.2":"Serie B","ita.coppa_italia":"Coppa Italia","ita.super_cup":"Supercoppa Italiana",
+        // Francia
+        "fra.1":"Ligue 1","fra.2":"Ligue 2","fra.coupe_de_france":"Coupe de France",
+        "fra.super_cup":"Trophée des Champions","fra.w.1":"Division 1 Femenina Francia",
+        // Portugal
+        "por.1":"Primeira Liga",
+        // Países Bajos
+        "ned.1":"Eredivisie","ned.2":"Eerste Divisie","ned.3":"Tweede Divisie",
+        "ned.cup":"KNVB Beker","ned.w.1":"Vrouwen Eredivisie",
+        // Bélgica
+        "bel.1":"Pro League Bélgica",
+        // Escocia
+        "sco.1":"Scottish Premiership","sco.2":"Scottish Championship","sco.3":"Scottish League One","sco.4":"Scottish League Two",
+        // Turquía
+        "tur.1":"Süper Lig","tur.super":"Süper Lig","tur.2":"1. Lig Turquía",
+        // Grecia
+        "gre.1":"Super League Grecia",
+        // Austria
+        "aut.1":"Austrian Bundesliga","aut.2":"Austrian Division I",
+        // Rusia
+        "rus.1":"Russian Premier League",
+        // Escandinavia
+        "swe.1":"Allsvenskan","swe.2":"SuperEttan",
+        "nor.1":"Eliteserien","nor.2":"1. Divisjon","nor.3":"2. Divisjon",
+        "den.1":"Superliga Dinamarca","den.2":"1. Division Dinamarca","den.3":"2. Division Dinamarca","den.4":"Danmarksserien G1","den.5":"Danmarksserien G2",
+        "fin.1":"Veikkausliga","fin.2":"1. Divisioona Finlandia",
+        // Suiza
+        "sui.1":"Swiss Super League","sui.2":"Swiss Challenge League",
+        // Europa Este / Otros
+        "rou.1":"Liga 1 Rumanía","cze.1":"Czech First League",
+        "isr.1":"Premier League Israel","cyp.1":"Primera División Chipre",
+        "irl.1":"League of Ireland Premier Division","nir.1":"NIFL Premiership",
+        "wal.1":"Welsh Premier League","wal.cup":"Copa de Gales","mlt.1":"Maltese Premier League",
+        // Copas UEFA
+        "uefa.champions":"Champions League","uefa.europa":"Europa League",
+        "uefa.europa.conf":"Conference League","uefa.nations":"UEFA Nations League",
+        // México
+        "mex.1":"Liga MX","mex.2":"Liga de Expansión MX","mex.w.1":"Liga MX Femenil",
+        // USA / Canadá
+        "usa.1":"MLS","usa.w.1":"NWSL",
+        // Argentina
+        "arg.1":"Liga Profesional Argentina","arg.2":"Nacional B","arg.3":"Primera B Argentina","arg.copa":"Copa Argentina",
+        // Brasil
+        "bra.1":"Brasileirao Serie A","bra.2":"Brasileirao Serie B","bra.3":"Brasileirao Serie C",
+        // Colombia
+        "col.1":"Liga BetPlay Colombia","col.2":"Primera B Colombia","col.copa":"Copa Colombia",
+        // Chile
+        "chi.1":"Primera División Chile","chi.2":"Segunda División Chile",
+        // Perú
+        "per.1":"Liga 1 Perú","per.2":"Segunda División Perú",
+        // Uruguay
+        "uru.1":"Liga Uruguaya","uru.2":"Segunda División Uruguay",
+        // Ecuador
+        "ecu.1":"LigaPro Ecuador","ecu.2":"Serie B Ecuador",
+        // Bolivia
+        "bol.1":"Liga Boliviana","bol.copa":"Copa Bolivia",
+        // Venezuela
+        "ven.1":"Liga FUTVE","ven.2":"Segunda División Venezuela",
+        // Paraguay
+        "par.1":"División de Honor Paraguay","par.2":"División Intermedia Paraguay",
+        // Copas Sudamérica
+        "conmebol.libertadores":"Copa Libertadores","conmebol.sudamericana":"Copa Sudamericana",
+        // CONCACAF
+        "concacaf.leagues.cup":"Leagues Cup","concacaf.champions":"Concacaf Champions Cup",
+        "crc.1":"Primera División Costa Rica","slv.1":"Primera División El Salvador",
+        "hon.1":"Liga Nacional Honduras","jam.1":"Premier League Jamaica",
+        // Eliminatorias
+        "fifa.worldq.conmebol":"Eliminatorias CONMEBOL","fifa.worldq.concacaf":"Eliminatorias CONCACAF",
+        "fifa.worldq.afc":"Eliminatorias AFC","fifa.worldq.caf":"Eliminatorias CAF","fifa.worldq.ofc":"Eliminatorias OFC",
+        // Asia
+        "jpn.1":"J1 League Japón","chn.1":"Chinese Super League","ksa.1":"Saudi Pro League",
+        "ind.1":"Indian Super League","ind.2":"I-League India",
+        "aus.1":"A-League Men","aus.w.1":"A-League Women",
+        "tha.1":"Thai League 1","mys.1":"Malaysian Super League",
+        "idn.1":"Liga 1 Indonesia","sgp.1":"Singapore Premier League",
+        "afc.champions":"AFC Champions League Elite","afc.asian.cup":"Copa Asia AFC",
+        // África
+        "caf.champions":"CAF Champions League","caf.confederation":"CAF Confederation Cup",
+        "caf.nations":"Copa África (AFCON)",
+        "nga.1":"NPFL Nigeria","gha.1":"Ghana Premier League","ken.1":"KPL Kenia",
+        "uga.1":"FUFA Premier League Uganda","zam.1":"FAZ Super League Zambia","zim.1":"PSL Zimbabwe",
+        // Especiales
+        "fifa.friendly":"Amistoso Internacional","fifa.confederations":"Copa Confederaciones FIFA"
+      };
+      // lid SIEMPRE viene de lidForzado (per-liga fetch garantizado)
+      const lid=lidForzado||"otro";
+      const liga=_LN[lid]||lid;
+      const home=comp.competitors?.find(c=>c.homeAway==="home")||comp.competitors?.[0];
+      const away=comp.competitors?.find(c=>c.homeAway==="away")||comp.competitors?.[1];
+      if(!home||!away)return;
+      const state=st.type.state,done=st.type.completed,tid=parseInt(st.type.id)||0;
+      let sk="pre";
+      if(state==="post"||done)sk="post";
+      else if(state==="in")sk=tid===23?"mt":"in";
+      else if([6,7,8,17,27,29,41].includes(tid))sk="susp";
+      let min="";
+      const clk=st.displayClock||"",per=st.period||0;
+      if(sk==="in"&&clk&&clk!=="0:00")min=clk+"'";
+      else if(sk==="in"&&per)min=per===2?"2T":"1T";
+      else if(sk==="mt")min="MT";
+      if(!ligasMap[lid])ligasMap[lid]={nombre:liga,emoji:flag(liga),items:0};
+      ligasMap[lid].items++;
+      todos.push({
+        id:ev.id,lid,liga,lemoji:flag(liga),
+        local:home.team?.shortDisplayName||home.team?.displayName||"Local",
+        visit:away.team?.shortDisplayName||away.team?.displayName||"Visitante",
+        logoL:home.team?.logo||"",logoV:away.team?.logo||"",
+        hid:home.team?.id||"",aid:away.team?.id||"",
+        gL:state!=="pre"?(home.score??"0"):null,
+        gV:state!=="pre"?(away.score??"0"):null,
+        hora:new Date(ev.date).toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"}),
+        sk,min
+      });
+    }catch(e){}
+  });
+}
+
+function abrirDet(id){
+  const p=todos.find(x=>x.id===id);if(!p)return;
+  pActual=p;
+  const iL=document.getElementById("dll"),pL=document.getElementById("dllp");
+  const iV=document.getElementById("dlv"),pV=document.getElementById("dlvp");
+  if(p.logoL){iL.src=p.logoL;iL.style.display="block";pL.style.display="none";}
+  else{iL.style.display="none";pL.style.display="block";}
+  if(p.logoV){iV.src=p.logoV;iV.style.display="block";pV.style.display="none";}
+  else{iV.style.display="none";pV.style.display="block";}
+  document.getElementById("dltag").textContent=`${p.lemoji} ${p.liga}`;
+  document.getElementById("dldet").textContent=`${p.lemoji} ${p.liga}`;
+  document.getElementById("dnl").textContent=p.local;
+  document.getElementById("dnv").textContent=p.visit;
+  document.getElementById("dsc").textContent=p.gL!==null?`${p.gL} - ${p.gV}`:"vs";
+  const sp=document.getElementById("dstp");
+  if(p.sk==="in"||p.sk==="mt"){sp.className="spst lv";sp.innerHTML=`<span class="dot"></span> ${p.min||"EN VIVO"}`;}
+  else if(p.sk==="post"){sp.className="spst ft";sp.textContent="FT";}
+  else{sp.className="spst pr";sp.textContent="🕐 "+p.hora;}
+
+  const esVJ=p.sk==="in"||p.sk==="mt"||p.sk==="post";
+  let tabs=[{id:"analisis",label:"📋 Pronósticos"}];
+  tabs.push({id:"ai",label:"🤖 GQVVS AI"});
+  if(esVJ)tabs.push({id:"stats",label:"📊 Estadísticas"});
+  tabs.push({id:"last5",label:"🕐 Forma"});
+  tabs.push({id:"tabla",label:"🏆 Tabla"});
+
+  document.getElementById("dtabs").innerHTML=tabs.map(t=>`<button class="dtab" id="dbt-${t.id}" onclick="showDP('${t.id}')">${t.label}</button>`).join("");
+  document.querySelectorAll(".dpanel").forEach(x=>x.classList.remove("act"));
+  document.getElementById("dp-analisis").classList.add("act");
+  document.querySelectorAll(".dtab").forEach(x=>x.classList.remove("act"));
+  const b=document.getElementById("dbt-analisis");if(b)b.classList.add("act");
+  renderAI(p);
+  const det=document.getElementById("det");
+  det.classList.add("vis");det.scrollTop=0;
+  document.body.style.overflow="hidden";
+}
+
+function cerrarDet(){
+  document.getElementById("det").classList.remove("vis");
+  document.body.style.overflow="";pActual=null;
+}
+
+function showDP(id){
+  document.querySelectorAll(".dpanel").forEach(x=>x.classList.remove("act"));
+  document.querySelectorAll(".dtab").forEach(x=>x.classList.remove("act"));
+  document.getElementById("dp-"+id).classList.add("act");
+  const b=document.getElementById("dbt-"+id);if(b)b.classList.add("act");
+  const p=pActual;if(!p)return;
+  if(id==="analisis")renderAI(p);
+  else if(id==="stats")loadStats(p);
+  else if(id==="tabla")loadTabla(p);
+  else if(id==="last5")loadLast5(p);
+  else if(id==="ai")renderVeredictoAI(p);
+}
+
+async function getSummary(p){
+  if(sCache[p.id])return sCache[p.id];
+  const urls=[
+    `${BASE}/${p.lid}/summary?event=${p.id}`,
+    `${BASE}/all/summary?event=${p.id}`
+  ];
+  for(const url of urls){
+    try{
+      const r=await fetch(url);
+      if(r.ok){const d=await r.json();sCache[p.id]=d;return d;}
+    }catch(e){}
+  }
+  return null;
+}
+
+function hsh(s){let h=0;for(let i=0;i<s.length;i++)h=Math.imul(31,h)+s.charCodeAt(i)|0;return Math.abs(h);}
+function rng(seed){let s=seed|0;return()=>{s=(Math.imul(1664525,s)+1013904223)|0;return(s>>>0)/0xffffffff;};}
+
+function genAI(p){
+  const r=rng(hsh(p.id+p.local+p.visit));
+  const hS=0.38+r()*0.18,dS=0.22+r()*0.1,aS=1-hS-dS,t=hS+dS+aS;
+  const pH=Math.round(hS/t*100),pD=Math.round(dS/t*100),pA=100-pH-pD;
+  const btts=Math.round(42+r()*26),o25=Math.round(48+r()*24);
+  const tG=(1.8+r()*1.6).toFixed(1),am=(2.2+r()*2.2).toFixed(1),co=(8+r()*4).toFixed(1);
+  const oc=Math.round(38+r()*28),oco=Math.round(45+r()*28);
+  return{pH,pD,pA,btts,o25,u25:100-o25,tG,am,co,oc,uco:100-oc,oco,uoco:100-oco,
+    p1X:Math.min(98,pH+pD),pX2:Math.min(98,pD+pA),p12:Math.min(98,pH+pA)};
+}
+
+function bRow(pct,cls,pcls,lbl=""){
+  return`<div class="abw">${lbl?`<span style="font-size:.65rem;color:var(--s2);min-width:55px">${lbl}</span>`:""}<div class="abbg"><div class="abf ${cls}" style="width:${pct}%"></div></div><span class="${pcls}">${pct}%</span></div>`;
+}
+
+function agBtn(pid,label,prob){
+  const uid="ag_"+pid+"_"+label.replace(/[^a-z0-9]/gi,"_");
+  const ya=tkActivo.some(x=>x.pid===pid&&x.label===label);
+  return `<button class="btn-ag${ya?" added":""}" id="${uid}" onclick="event.stopPropagation();agregarAlTicket('${pid}','${label.replace(/'/g,"\\'")}',${prob},'${uid}')">${ya?"✓ AGREGADO":"+ AGREGAR"}</button>`;
+}
+
+function renderAI(p){
+  const el=document.getElementById("dp-analisis");
+  const ai=genAI(p);
+  const isPre=p.sk==="pre";
+  const ag=(lbl,prob)=>isPre?agBtn(p.id,lbl,prob):"";
+  el.innerHTML=`
+  <div class="aihd"><div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span class="aibdg">GQVVS AI</span><span class="aitl">Análisis del Partido</span></div>
+    <div class="aisub">${p.local} vs ${p.visit} · ${p.liga}</div>
+  </div></div>
+  <div class="aibl">
+    <div class="aiblt">⏱ Ganador</div>
+    <div style="padding:12px 14px">
+      <div class="ao3" style="margin-bottom:12px">
+        <div class="ao"><span class="aol">${p.local}</span><span class="aov hm">${ai.pH}%</span></div>
+        <div class="ao"><span class="aol">Empate</span><span class="aov dr">${ai.pD}%</span></div>
+        <div class="ao"><span class="aol">${p.visit}</span><span class="aov aw">${ai.pA}%</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">${bRow(ai.pH,"rd","apr",p.local)}${ag("Gana "+p.local,ai.pH)}</div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">${bRow(ai.pD,"or","apo","Empate")}${ag("Empate",ai.pD)}</div>
+      <div style="display:flex;align-items:center;gap:6px">${bRow(ai.pA,"bl","apb",p.visit)}${ag("Gana "+p.visit,ai.pA)}</div>
+    </div>
+  </div>
+  <div class="aibl">
+    <div class="aiblt">⚽ Total de Goles</div>
+    <div class="airw"><span class="airl">Total esperado</span><div class="airr"><span style="font-size:1.3rem;font-weight:900">${ai.tG} <span style="font-size:.7rem;color:var(--s2)">goles est.</span></span></div></div>
+    <div class="airw"><span class="airl">Más de 2.5 goles</span><div class="airr">${bRow(ai.o25,"gn","apg")}</div>${ag("+2.5 Goles",ai.o25)}</div>
+    <div class="airw"><span class="airl">Menos de 2.5 goles</span><div class="airr">${bRow(ai.u25,"rd","apr")}</div>${ag("-2.5 Goles",ai.u25)}</div>
+    <div class="airw"><span class="airl">Ambos anotan — Sí</span><div class="airr">${bRow(ai.btts,"gn","apg")}</div>${ag("Ambos Anotan",ai.btts)}</div>
+    <div class="airw"><span class="airl">Ambos anotan — No</span><div class="airr">${bRow(100-ai.btts,"rd","apr")}</div>${ag("No Ambos Anotan",100-ai.btts)}</div>
+  </div>
+  <div class="aibl">
+    <div class="aiblt">🟨 Tarjetas Amarillas</div>
+    <div class="airw"><span class="airl">Total esperado</span><div class="airr"><span style="font-size:1.3rem;font-weight:900;color:var(--or)">${ai.am} <span style="font-size:.7rem;color:var(--s2)">est.</span></span></div></div>
+    <div class="airw"><span class="airl">Más de 3.5</span><div class="airr">${bRow(ai.oc,"or","apo")}</div>${ag("+3.5 Tarjetas",ai.oc)}</div>
+    <div class="airw"><span class="airl">Menos de 3.5</span><div class="airr">${bRow(ai.uco,"gn","apg")}</div>${ag("-3.5 Tarjetas",ai.uco)}</div>
+  </div>
+  <div class="aibl">
+    <div class="aiblt">🚩 Corners</div>
+    <div class="airw"><span class="airl">Total esperado</span><div class="airr"><span style="font-size:1.3rem;font-weight:900;color:var(--az)">${ai.co} <span style="font-size:.7rem;color:var(--s2)">est.</span></span></div></div>
+    <div class="airw"><span class="airl">Más de 9.5</span><div class="airr">${bRow(ai.oco,"bl","apb")}</div>${ag("+9.5 Corners",ai.oco)}</div>
+    <div class="airw"><span class="airl">Menos de 9.5</span><div class="airr">${bRow(ai.uoco,"gn","apg")}</div>${ag("-9.5 Corners",ai.uoco)}</div>
+  </div>
+  <div class="aibl">
+    <div class="aiblt">🎯 Doble Oportunidad</div>
+    <div style="padding:12px 14px">
+      <div class="dcr">
+        <div class="dci"><div class="dcl">1X</div><div class="dcv">${ai.p1X}%</div><div class="dcb"><div class="dcbf" style="width:${ai.p1X}%"></div></div><div style="font-size:.6rem;color:var(--sb);margin-top:4px">${p.local} o Empate</div>${ag("1X",ai.p1X)}</div>
+        <div class="dci"><div class="dcl">X2</div><div class="dcv">${ai.pX2}%</div><div class="dcb"><div class="dcbf" style="width:${ai.pX2}%"></div></div><div style="font-size:.6rem;color:var(--sb);margin-top:4px">Empate o ${p.visit}</div>${ag("X2",ai.pX2)}</div>
+        <div class="dci"><div class="dcl">12</div><div class="dcv">${ai.p12}%</div><div class="dcb"><div class="dcbf" style="width:${ai.p12}%"></div></div><div style="font-size:.6rem;color:var(--sb);margin-top:4px">${p.local} o ${p.visit}</div>${ag("12",ai.p12)}</div>
+      </div>
+    </div>
+  </div>
+  ${isPre?`<div style="text-align:center;padding:4px 14px 2px"><span style="font-size:.63rem;color:var(--az);font-weight:700">👆 Toca + AGREGAR para añadir al ticket</span></div>`:""}
+  <div style="text-align:center;padding:8px 0;font-size:.62rem;color:var(--sb)">⚠️ Análisis generado por IA. No constituye asesoría de apuestas.</div>`;
+}
+
+
+async function loadStats(p){
+  const el=document.getElementById("dp-stats");
+  el.innerHTML=`<div class="loading"><div class="spin"></div><br>Cargando estadísticas...</div>`;
+  try{
+    const d=await getSummary(p);if(!d)throw new Error("Sin datos");
+    let hS=[],aS=[];
+    const bx=d.boxscore||d.gamepackageJSON?.boxscore;
+    if(bx?.teams?.length>=2){
+      const h=bx.teams.find(x=>x.homeAway==="home")||bx.teams[0];
+      const a=bx.teams.find(x=>x.homeAway==="away")||bx.teams[1];
+      hS=h?.statistics||[];aS=a?.statistics||[];
+    }
+    if(!hS.length)throw new Error("ESPN no tiene estadísticas para este partido aún");
+    const gs=(arr,n)=>{const s=arr.find(x=>x.name===n||x.abbreviation===n||x.label===n);return s?(s.displayValue??String(s.value??"0")):"0";};
+    const pH=parseFloat(gs(hS,"possessionPct")||gs(hS,"possession"))||50;
+    const pA=Math.round(100-pH),pHr=Math.round(pH);
+    const ph=(v,va)=>{const n=parseFloat(v)||0,m=parseFloat(va)||0;return n===m?`<span class="pd">${v}</span>`:n>m?`<span class="pw">${v}</span>`:`<span class="pl">${v}</span>`;};
+    const pa=(v,va)=>{const n=parseFloat(v)||0,m=parseFloat(va)||0;return n===m?`<span class="pd">${va}</span>`:m>n?`<span class="pw">${va}</span>`:`<span class="pl">${va}</span>`;};
+    const rows=defs=>defs.map(d=>{const v=gs(hS,d.k),va=gs(aS,d.k);if(v==="0"&&va==="0")return"";return`<div class="srw"><div class="svl">${ph(v,va)}</div><div class="sn">${d.l}</div><div class="svr">${pa(v,va)}</div></div>`;}).join("");
+    const TOP=[{k:"totalShots",l:"Tiros"},{k:"shotsOnTarget",l:"A puerta"},{k:"bigChances",l:"Grandes ocasiones"},{k:"accuratePasses",l:"Pases precisos"},{k:"fouls",l:"Faltas"},{k:"cornersWon",l:"Corners"}];
+    const TIRO=[{k:"shotsOnTarget",l:"A puerta"},{k:"shotsOffTarget",l:"Fuera"},{k:"blockedShots",l:"Bloqueados"},{k:"shotsInsideBox",l:"Dentro del área"}];
+    const DISC=[{k:"yellowCards",l:"Tarjetas amarillas"},{k:"redCards",l:"Tarjetas rojas"},{k:"cornersWon",l:"Corners"},{k:"offsides",l:"Fueras de juego"}];
+    el.innerHTML=`
+      <div class="stbl"><div class="stblt">Top Estadísticas</div>
+        <div class="pswp">
+          <div style="text-align:center;font-size:.7rem;color:var(--s2);margin-bottom:6px;font-weight:600">Posesión</div>
+          <div class="psbc"><div class="psl" style="width:${pHr}%">${pHr}%</div><div class="psr" style="width:${pA}%">${pA}%</div></div>
+          <div class="pst"><span style="font-size:.7rem;font-weight:700">${p.local}</span><span style="font-size:.7rem;font-weight:700">${p.visit}</span></div>
+        </div>${rows(TOP)||'<div style="padding:10px;text-align:center;color:var(--sb);font-size:.75rem">Sin datos</div>'}
+      </div>
+      <div class="stbl"><div class="stblt">Tiro</div>${rows(TIRO)||'<div style="padding:10px;text-align:center;color:var(--sb);font-size:.75rem">Sin datos</div>'}</div>
+      <div class="stbl"><div class="stblt">Disciplina</div>${rows(DISC)||'<div style="padding:10px;text-align:center;color:var(--sb);font-size:.75rem">Sin datos</div>'}</div>`;
+  }catch(e){el.innerHTML=`<div class="empty">📊 ${e.message}</div>`;}
+}
+
+async function loadTabla(p){
+  const el=document.getElementById("dp-tabla");
+  el.innerHTML=`<div class="loading"><div class="spin"></div><br>Cargando tabla...</div>`;
+  // Ligas sin tabla de posiciones (copas/eliminatorias/amistosos)
+  const sinTabla=new Set([
+        "uefa.champions","uefa.europa","uefa.europa.conf","uefa.nations",
+        "conmebol.libertadores","conmebol.sudamericana",
+        "concacaf.champions","concacaf.leagues.cup",
+        "fifa.worldq.conmebol","fifa.worldq.concacaf","fifa.worldq.afc","fifa.worldq.caf","fifa.worldq.ofc",
+        "fifa.friendly","fifa.confederations",
+        "afc.champions","afc.asian.cup","caf.champions","caf.confederation","caf.nations",
+        "eng.league_cup","esp.copa_del_rey","esp.super_cup","ita.coppa_italia","ger.dfb_pokal",
+        "fra.coupe_de_france","fra.super_cup","ger.super_cup","ita.super_cup",
+        "ned.cup","wal.cup","arg.copa","col.copa","bol.copa"
+      ])
+  if(sinTabla.has(p.lid)){
+    el.innerHTML=`<div class="empty">🏆 Esta competición no tiene tabla de posiciones</div>`;return;
+  }
+  try{
+    if(!p.lid||p.lid==="otro")throw new Error("Liga no identificada");
+    let teamMap={};
+    try{
+      const rt=await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${p.lid}/teams?limit=60`);
+      if(rt.ok){
+        const dt=await rt.json();
+        const lista=dt.sports?.[0]?.leagues?.[0]?.teams||dt.teams||[];
+        lista.forEach(t=>{const tm=t.team||t;if(tm.id)teamMap[String(tm.id)]={name:tm.shortDisplayName||tm.displayName||tm.name||"",logo:tm.logos?.[0]?.href||""};});
+      }
+    }catch(e){}
+    const findEntries=(obj,d=0)=>{
+      if(d>7||!obj||typeof obj!=="object")return[];
+      if(Array.isArray(obj)){for(const x of obj){const r=findEntries(x,d+1);if(r.length)return r;}return[];}
+      if(obj.entries&&Array.isArray(obj.entries)&&obj.entries.length>1)return obj.entries;
+      for(const v of Object.values(obj)){const r=findEntries(v,d+1);if(r.length)return r;}
+      return[];
+    };
+    const standLid=p.lid;
+    const B2="https://site.api.espn.com/apis/v2/sports/soccer";
+    const yr=new Date().getFullYear();
+    let entries=[],groupName="";
+    for(const url of [`${B2}/${standLid}/standings`,`${B2}/${standLid}/standings?season=${yr}`,`${B2}/${standLid}/standings?season=${yr-1}`]){
+      if(entries.length)break;
+      try{const r=await fetch(url);if(!r.ok)continue;const d=await r.json();if(!groupName)groupName=d.name||"";entries=findEntries(d);}catch(e){}
+    }
+    if(!entries.length)throw new Error("Tabla no disponible para "+p.liga);
+    if(!groupName)groupName=p.liga;
+    const getS=(stats,keys)=>{for(const k of keys){const s=stats.find(x=>x.name===k||x.abbreviation===k);if(s)return s.displayValue??String(s.value??"");}return"—";};
+    let html=`<div class="tabbl"><div class="tabblt">${groupName}</div>
+      <div class="tabr hdr"><div class="tpos">#</div><div class="ttm">Equipo</div>
+      <div class="tnum">PJ</div><div class="tnum">G</div><div class="tnum">E</div><div class="tnum">P</div><div class="tnum">GD</div><div class="tpts">Pts</div></div>`;
+    entries.forEach((e,i)=>{
+      const tm=e.team||{};const stats=e.stats||[];
+      const tid=String(tm.id||"");const mapped=teamMap[tid];
+      const name=mapped?.name||tm.shortDisplayName||tm.displayName||tm.name||"—";
+      const logo=mapped?.logo||tm.logos?.[0]?.href||"";
+      const isH=tid===String(p.hid)||name===p.local;
+      const isA=tid===String(p.aid)||name===p.visit;
+      const pos=i+1;const pc=pos<=3?"t3":pos<=6?"t6":"";
+      html+=`<div class="tabr ${isH?"hlh":isA?"hla":""}">
+        <div class="tpos ${pc}">${pos}</div>
+        <div class="ttm">${logo?`<img src="${logo}" style="width:16px;height:16px;object-fit:contain;flex-shrink:0" onerror="this.style.display='none'">`:`<div class="ttmp"></div>`}<span class="ttmn">${name}</span></div>
+        <div class="tnum">${getS(stats,["gamesPlayed","GP"])}</div><div class="tnum">${getS(stats,["wins","W"])}</div>
+        <div class="tnum">${getS(stats,["ties","D","draws"])}</div><div class="tnum">${getS(stats,["losses","L"])}</div>
+        <div class="tnum">${getS(stats,["pointDifferential","GD"])}</div>
+        <div class="tpts">${getS(stats,["points","PTS","pts"])}</div></div>`;
+    });
+    el.innerHTML=html+"</div>";
+  }catch(err){el.innerHTML=`<div class="empty">🏆 ${err.message}</div>`;}
+}
+
+
+function abrirModal(){
+  const p=pActual;if(!p)return;
+  document.getElementById("mptit").textContent=`${p.local} vs ${p.visit}`;
+  document.getElementById("mmrc").value="";
+  document.getElementById("mops").innerHTML=
+    [p.local,"Empate",p.visit].map(op=>
+      `<button class="opbtn" onclick="selOp(this,'${op.replace(/'/g,"\\'")}')">${op===p.local?"🏠":op==="Empate"?"🤝":"✈️"} ${op}</button>`
+    ).join("");
+  document.getElementById("mop").classList.remove("hid");
+}
+function cerrarModal(){document.getElementById("mop").classList.add("hid");}
+function selOp(btn,v){document.querySelectorAll(".opbtn").forEach(b=>b.classList.remove("sel"));btn.classList.add("sel");btn.dataset.v=v;}
+function guardar(){
+  const sel=document.querySelector(".opbtn.sel");
+  if(!sel){alert("Selecciona un ganador ⚠️");return;}
+  const p=pActual;
+  historial.push({
+    partido:`${p.local} vs ${p.visit}`,liga:p.liga,
+    ganador:sel.dataset.v,
+    marcador:document.getElementById("mmrc").value||"No especificado",
+    real:p.gL!==null?`${p.gL}-${p.gV}`:"Sin iniciar",
+    fecha:new Date().toLocaleString("es-MX")
+  });
+  localStorage.setItem("gqvvsbet_v10",JSON.stringify(historial));
+  document.getElementById("bdg-h").textContent=historial.length;
+  cerrarModal();cerrarDet();showTab("historial");
+}
+
+function buildChips(){
+  const b=document.getElementById("lbar");
+  b.innerHTML=`<button class="lchip${ligaActiva==="todas"?" act":""}" onclick="filLiga('todas')">🌎 Todas (${todos.length})</button>`;
+  Object.entries(ligasMap).sort((a,b)=>b[1].items-a[1].items).forEach(([id,l])=>{
+    b.innerHTML+=`<button class="lchip${ligaActiva===id?" act":""}" onclick="filLiga('${id.replace(/'/g,"\\'")}')">
+      ${l.emoji} ${l.nombre} <span style="opacity:.55;font-size:.6rem">${l.items}</span></button>`;
+  });
+}
+
+function renderTodo(){
+  let lista=ligaActiva==="todas"?[...todos]:todos.filter(p=>p.lid===ligaActiva);
+  lista=filtSrch(lista);
+  const vivo=lista.filter(p=>p.sk==="in"||p.sk==="mt");
+  const pend=lista.filter(p=>p.sk==="pre");
+  document.getElementById("stot").textContent=lista.length;
+  document.getElementById("slv").textContent=vivo.length;
+  document.getElementById("spd").textContent=pend.length;
+  document.getElementById("bdg-p").textContent=lista.length;
+  document.getElementById("bdg-e").textContent=vivo.length;
+  document.getElementById("iev").textContent=`🔴 ${vivo.length} partido${vivo.length!==1?"s":""} en vivo`;
+  const evs=document.getElementById("evsec");
+  evs.style.display=vivo.length&&!busq?"block":"none";
+  if(vivo.length&&!busq)document.getElementById("evscr").innerHTML=vivo.map(cardLive).join("");
+  const ord={in:0,mt:1,pre:2,susp:3,post:4};
+  const sorted=[...lista].sort((a,b)=>(ord[a.sk]??9)-(ord[b.sk]??9));
+  const lp=document.getElementById("lp");
+  if(!sorted.length){
+    lp.innerHTML=busq?`<div class="nosr">🔍 Sin resultados para "<b>${busq}</b>"</div>`:`<div class="empty">Sin partidos para este día 📭</div>`;
+  }else if(busq){
+    lp.innerHTML=sorted.map(cardMatch).join("");
+  }else{
+    lp.innerHTML="";
+    const byL={};
+    sorted.forEach(p=>{
+      if(!byL[p.lid])byL[p.lid]={emoji:p.lemoji,nombre:p.liga,items:[]};
+      byL[p.lid].items.push(p);
+    });
+    for(const[,g]of Object.entries(byL)){
+      const v=g.items.filter(p=>p.sk==="in"||p.sk==="mt").length;
+      lp.innerHTML+=`<div class="lgh"><span>${g.emoji}</span><span class="lgn">${g.nombre}</span>
+        <span class="lgc">${g.items.length} partidos${v>0?` · <span style="color:var(--ac)">${v} en vivo</span>`:""}</span></div>
+        ${g.items.map(cardMatch).join("")}`;
+    }
+  }
+  document.getElementById("le").innerHTML=vivo.length?vivo.map(cardMatch).join(""):`<div class="empty">No hay partidos en vivo 📭</div>`;
+}
+
+function cardLive(p){
+  const iL=p.logoL?`<img class="lvl" src="${p.logoL}" onerror="this.style.display='none'" loading="lazy">`:`<div class="lvlp"></div>`;
+  const iV=p.logoV?`<img class="lvl" src="${p.logoV}" onerror="this.style.display='none'" loading="lazy">`:`<div class="lvlp"></div>`;
+  return`<div class="clv" onclick="abrirDet('${p.id}')">
+    <div class="lvtop"><span class="ltag">${p.lemoji} ${p.liga}</span><span class="mbdg"><span class="dot"></span> ${p.min||"EN VIVO"}</span></div>
+    <div class="lvt">
+      <div class="lvtm">${iL}<span class="lvn">${p.local}</span></div>
+      <div class="lvsb"><div class="lvsc">${p.gL!==null?`${p.gL} - ${p.gV}`:"- -"}</div><div class="lvsbl">EN VIVO</div></div>
+      <div class="lvtm">${iV}<span class="lvn">${p.visit}</span></div>
+    </div></div>`;
+}
+
+function cardMatch(p){
+  let pill="";
+  if(p.sk==="in")pill=`<div class="spill lv">EN VIVO</div><div class="ms">${p.min}</div>`;
+  else if(p.sk==="mt")pill=`<div class="spill mt">½ T</div>`;
+  else if(p.sk==="post")pill=`<div class="spill ft">FT</div>`;
+  else if(p.sk==="susp")pill=`<div class="spill su">SUSP</div>`;
+  else pill=`<div class="spill pr">${p.hora}</div>`;
+  const cls="mc"+(p.sk==="in"||p.sk==="mt"?" il":p.sk==="post"?" fi":"");
+  const iL=p.logoL?`<img class="tls" src="${p.logoL}" onerror="this.style.display='none'" loading="lazy">`:`<div class="tlp"></div>`;
+  const iV=p.logoV?`<img class="tls" src="${p.logoV}" onerror="this.style.display='none'" loading="lazy">`:`<div class="tlp"></div>`;
+  const gL=p.gL!==null?`<span class="tsc">${p.gL}</span>`:"";
+  const gV=p.gV!==null?`<span class="tsc">${p.gV}</span>`:"";
+  return`<div class="${cls}">
+    <div class="scol" onclick="abrirDet('${p.id}')">${pill}</div>
+    <div class="tcol" onclick="abrirDet('${p.id}')">
+      <div class="tr">${iL}<span class="tn">${p.local}</span>${gL}</div>
+      <div class="sdiv"></div>
+      <div class="tr">${iV}<span class="tn">${p.visit}</span>${gV}</div>
+    </div>
+    <div class="pcol" onclick="abrirDet('${p.id}')"><button class="btnp" onclick="event.stopPropagation();abrirDet('${p.id}')">📝</button></div>
+    <div id="odds-${p.id}" class="odds-sk" style="grid-column:1/-1">⏳ Cargando momios...</div>
+  </div>`;
+}
+
+function filLiga(id){
+  ligaActiva=id;
+  document.querySelectorAll(".lchip").forEach(b=>{
+    b.classList.toggle("act",(b.getAttribute("onclick")||"").includes(`'${id}'`));
+  });
+  renderTodo();loadAllOdds();
+}
+
+function showTab(t){
+  document.querySelectorAll(".sec").forEach(s=>s.classList.remove("act"));
+  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("act"));
+  document.getElementById("sec-"+t).classList.add("act");
+  document.getElementById("tab-"+t).classList.add("act");
+  if(t==="historial")renderHist();
+  if(t==="pendientes")renderPendientes();
+}
+
+function onSrch(v){
+  busq=v.trim().toLowerCase();
+  document.getElementById("scl").style.display=busq?"block":"none";
+  renderTodo();
+}
+function clrSrch(){document.getElementById("sinp").value="";busq="";document.getElementById("scl").style.display="none";renderTodo();}
+function filtSrch(lista){if(!busq)return lista;return lista.filter(p=>p.local.toLowerCase().includes(busq)||p.visit.toLowerCase().includes(busq)||p.liga.toLowerCase().includes(busq));}
+
+function startTimer(){
+  clearInterval(timer);cval=30;
+  const el=document.getElementById("ctxt");
+  const lv=todos.some(p=>p.sk==="in"||p.sk==="mt");
+  lv?el.classList.add("lv"):el.classList.remove("lv");
+  timer=setInterval(()=>{cval--;el.textContent=`⏱ ${cval}s`;if(cval<=0){el.textContent="↻...";cargar(false);}},1000);
+}
+
+function renderHist(){
+  document.getElementById("bdg-h").textContent=historial.length;
+  document.getElementById("ih").textContent=`📋 ${historial.length} pronóstico${historial.length!==1?"s":""} registrado${historial.length!==1?"s":""}`;
+  const cont=document.getElementById("lh");
+  if(!historial.length){
+    cont.innerHTML=`<div class="empty">Aún no tienes pronósticos 🎯<br>Ve a Partidos y haz tu primera predicción</div>`;
+    return;
+  }
+  cont.innerHTML=[...historial].reverse().map((h,i)=>`
+    <div class="hcard">
+      <div class="hnum">${historial.length-i}</div>
+      <div class="hinfo"><h3>${h.partido}</h3><span>${h.liga} · ${h.fecha}</span></div>
+      <button class="btnv" onclick="verHist(${historial.length-1-i})">👁 Ver</button>
+    </div>`).join("");
+}
+
+function verHist(idx){
+  const h=historial[idx];
+  document.getElementById("dhcont").innerHTML=`
+    <div class="drow"><div class="dlbl">⚽ Partido</div><div class="dval">${h.partido}</div></div>
+    <div class="drow"><div class="dlbl">🏆 Ganador elegido</div><div class="dval">${h.ganador}</div></div>
+    <div class="drow"><div class="dlbl">📊 Marcador estimado</div><div class="dval">${h.marcador}</div></div>
+    <div class="drow"><div class="dlbl">📡 Marcador real</div><div class="dval">${h.real||"—"}</div></div>
+    <div class="drow"><div class="dlbl">🕐 Registrado</div><div class="dval">${h.fecha}</div></div>`;
+  document.getElementById("modh").classList.remove("hid");
+}
+
+function flag(n=""){
+  n=n.toLowerCase();
+  if(n.includes("premier")||n.includes("england")||n.includes("fa cup"))return"🏴󠁧󠁢󠁥󠁮󠁧󠁿";
+  if(n.includes("laliga")||n.includes("la liga")||n.includes("spain")||n.includes("copa del rey"))return"🇪🇸";
+  if(n.includes("bundesliga")||n.includes("germany")||n.includes("dfb"))return"🇩🇪";
+  if(n.includes("serie a")||n.includes("italy")||n.includes("coppa"))return"🇮🇹";
+  if(n.includes("ligue")||n.includes("france")||n.includes("coupe"))return"🇫🇷";
+  if(n.includes("liga mx")||n.includes("mexico")||n.includes("bbva")||n.includes("apertura")||n.includes("clausura"))return"🇲🇽";
+  if(n.includes("mls")||n.includes("united states")||n.includes("usl"))return"🇺🇸";
+  if(n.includes("champions"))return"⭐";
+  if(n.includes("europa"))return"🌟";
+  if(n.includes("conference"))return"🏅";
+  if(n.includes("libertadores")||n.includes("sudamericana"))return"🌎";
+  if(n.includes("brasileirao")||n.includes("brazil")||n.includes("brasil"))return"🇧🇷";
+  if(n.includes("argentina"))return"🇦🇷";
+  if(n.includes("colombia"))return"🇨🇴";
+  if(n.includes("chile"))return"🇨🇱";
+  if(n.includes("portugal")||n.includes("primeira"))return"🇵🇹";
+  if(n.includes("eredivisie")||n.includes("netherlands"))return"🇳🇱";
+  if(n.includes("turkey")||n.includes("süper")||n.includes("super lig"))return"🇹🇷";
+  if(n.includes("saudi")||n.includes("roshn"))return"🇸🇦";
+  if(n.includes("j.league")||n.includes("japan")||n.includes("j1"))return"🇯🇵";
+  if(n.includes("scotland")||n.includes("scottish"))return"🏴󠁧󠁢󠁳󠁣󠁴󠁿";
+  if(n.includes("austria"))return"🇦🇹";
+  if(n.includes("world cup")||n.includes("fifa"))return"🌍";
+  if(n.includes("concacaf"))return"🌎";
+  return"⚽";
+}
+
+/* ══ SISTEMA DE TICKETS ══ */
+let tkVisible=false;
+
+function toggleTicket(){
+  tkVisible=!tkVisible;
+  document.getElementById("tkcard").style.display=tkVisible?"block":"none";
+  if(tkVisible)renderTicketActivo();
+}
+
+function agregarAlTicket(pid,label,prob,btnId){
+  // Permitir múltiples selecciones del mismo partido
+  const p=todos.find(x=>x.id===pid);
+  if(!p)return;
+  tkActivo.push({pid,partido:p.local+" vs "+p.visit,liga:p.liga,label,prob});
+  const btn=document.getElementById(btnId);
+  if(btn){btn.textContent="✓ AGREGADO";btn.classList.add("added");}
+  actualizarBurbuja();
+  if(tkVisible)renderTicketActivo();
+}
+
+function quitarDelTicket(idx){
+  const item=tkActivo[idx];
+  tkActivo.splice(idx,1);
+  if(item){
+    const uid="ag_"+item.pid+"_"+item.label.replace(/[^a-z0-9]/gi,"_");
+    const btn=document.getElementById(uid);
+    if(btn){btn.textContent="+ AGREGAR";btn.classList.remove("added");}
+  }
+  actualizarBurbuja();
+  renderTicketActivo();
+}
+
+function borrarTicketActivo(){
+  tkActivo=[];
+  actualizarBurbuja();
+  renderTicketActivo();
+  document.querySelectorAll(".btn-ag.added").forEach(b=>{
+    b.textContent="+ AGREGAR";b.classList.remove("added");
+  });
+}
+
+function calcProb(sels){
+  if(!sels.length)return 0;
+  // Análisis de correlación entre selecciones del mismo partido
+  const byPartido={};
+  sels.forEach(s=>{
+    if(!byPartido[s.pid])byPartido[s.pid]=[];
+    byPartido[s.pid].push(s.prob/100);
+  });
+  // Por partido: si hay múltiples picks del mismo partido, tomamos la mínima
+  // (no son independientes entre sí — condicionalmente dependientes)
+  let prob=1;
+  Object.values(byPartido).forEach(probs=>{
+    if(probs.length===1){
+      prob*=probs[0];
+    } else {
+      // Picks del mismo partido: usar mínimo ajustado (son semi-dependientes)
+      const minP=Math.min(...probs);
+      const extra=probs.filter((_,i)=>i>0).reduce((a,b)=>a*b,1);
+      prob*=minP*Math.pow(extra,0.5); // raíz cuadrada = correlación parcial
+    }
+  });
+  // Penalización por cantidad: a más picks, más riesgo acumulado
+  const n=sels.length;
+  if(n>=3)prob*=Math.pow(0.97,n-2); // -3% acumulativo por pick adicional >2
+  const result=Math.round(prob*1000)/10;
+  return Math.min(result,99.9);
+}
+
+function actualizarBurbuja(){
+  const cnt=document.getElementById("tkcnt");
+  const n=tkActivo.length;
+  if(!cnt)return;
+  cnt.textContent=n;
+  cnt.classList.toggle("vis",n>0);
+  const tc=document.getElementById("tkcount");
+  if(tc)tc.textContent=n;
+}
+
+function renderTicketActivo(){
+  const body=document.getElementById("tkbody");
+  const probEl=document.getElementById("tkprobval");
+  if(!body)return;
+  if(!tkActivo.length){
+    body.innerHTML='<div style="text-align:center;padding:20px;color:var(--sb);font-size:.78rem">Sin selecciones aún.<br><span style="font-size:.7rem">Abre un partido pendiente y toca + AGREGAR</span></div>';
+    if(probEl)probEl.textContent="—";
+    return;
+  }
+  body.innerHTML=tkActivo.map((item,i)=>`
+    <div class="tkitem">
+      <div class="tkiinfo">
+        <div class="tkipartido">${item.liga} · ${item.partido}</div>
+        <div class="tkitipo">${item.label}</div>
+      </div>
+      <span class="tkiprob">${item.prob}%</span>
+      <button class="tkibtn" onclick="quitarDelTicket(${i})" title="Quitar">✕</button>
+    </div>`).join("");
+  const pComb=calcProb(tkActivo);
+  if(probEl){
+    const color=pComb>=60?"var(--gr)":pComb>=35?"var(--or)":"var(--ac)";
+    const nivel=pComb>=70?"Alta 🔥":pComb>=45?"Media ⚡":pComb>=25?"Baja ⚠️":"Muy baja ☠️";
+    probEl.innerHTML=`<span style="color:${color};font-size:1.1rem">${pComb}%</span> <span style="font-size:.6rem;color:var(--sb);font-weight:600">${nivel}</span>`;
+  }
+}
+
+function ticketListo(){
+  if(!tkActivo.length){alert("Agrega al menos una predicción al ticket ⚠️");return;}
+  const ticket={
+    id:Date.now(),
+    fecha:new Date().toLocaleString("es-MX"),
+    sels:[...tkActivo],
+    probTotal:calcProb(tkActivo),
+    estado:"pendiente"
+  };
+  tkGuardados.push(ticket);
+  localStorage.setItem("gqvvs_tickets",JSON.stringify(tkGuardados));
+  borrarTicketActivo();
+  if(tkVisible){tkVisible=false;document.getElementById("tkcard").style.display="none";}
+  actualizarBadgeTk();
+  showTab("pendientes");
+}
+
+function actualizarBadgeTk(){
+  const el=document.getElementById("bdg-tk");
+  if(el)el.textContent=tkGuardados.length;
+}
+
+function setEstadoTicket(idx,estado){
+  tkGuardados[idx].estado=estado;
+  localStorage.setItem("gqvvs_tickets",JSON.stringify(tkGuardados));
+  renderPendientes();
+}
+
+function borrarTicketGuardado(idx){
+  tkGuardados.splice(idx,1);
+  localStorage.setItem("gqvvs_tickets",JSON.stringify(tkGuardados));
+  actualizarBadgeTk();
+  renderPendientes();
+}
+
+function renderPendientes(){
+  actualizarBadgeTk();
+  const ibar=document.getElementById("ipend");
+  const cont=document.getElementById("lpend");
+  if(!cont)return;
+  if(ibar)ibar.textContent="🎟️ "+tkGuardados.length+" ticket"+(tkGuardados.length!==1?"s":"")+" guardado"+(tkGuardados.length!==1?"s":"");
+  if(!tkGuardados.length){
+    cont.innerHTML='<div class="empty">🎟️ No tienes tickets guardados.<br>Agrega predicciones desde un partido y presiona ✅ LISTO.</div>';
+    return;
+  }
+  cont.innerHTML=tkGuardados.map((tk,i)=>{
+    const est=tk.estado||"pendiente";
+    const ic=est==="ganado"?"🟢":est==="perdido"?"🔴":"🟡";
+    const lbl=est==="ganado"?"GANADO":est==="perdido"?"PERDIDO":"PENDIENTE";
+    return`<div class="tkguard ${est}">
+      <div class="tkgtop">
+        <span class="tkgestado ${est}">${ic} ${lbl}</span>
+        <span style="font-size:.62rem;color:var(--sb)">${tk.fecha}</span>
+      </div>
+      ${tk.sels.map(s=>`<div class="tkgsel"><span class="tkgslbl">${s.partido} — <b>${s.label}</b></span><span class="tkgsprob">${s.prob}%</span></div>`).join("")}
+      <div class="tkgfooter">
+        <span class="tkgprob">Prob. combinada: ${tk.probTotal}%</span>
+        <div class="tkgbtns">
+          ${est==="pendiente"?`<button class="btn-tk-edit" onclick="setEstadoTicket(${i},'ganado')">✅ Ganado</button><button class="btn-tk-edit" onclick="setEstadoTicket(${i},'perdido')">❌ Perdido</button>`:`<button class="btn-tk-edit" onclick="setEstadoTicket(${i},'pendiente')">↩ Pendiente</button>`}
+          <button class="btn-tk-del" onclick="borrarTicketGuardado(${i})">🗑</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+
+
+// ══════════════════════════════════════════
+// TEMA CLARO / OSCURO
+// ══════════════════════════════════════════
+function toggleTheme(){
+  const r=document.documentElement,b=document.getElementById('btnTheme');
+  if(r.getAttribute('data-theme')==='light'){
+    r.removeAttribute('data-theme');b.innerHTML='🌙 Oscuro';localStorage.setItem('th','dark');
+  }else{
+    r.setAttribute('data-theme','light');b.innerHTML='☀️ Claro';localStorage.setItem('th','light');
+  }
+}
+(function(){
+  if(localStorage.getItem('th')==='light'){
+    document.documentElement.setAttribute('data-theme','light');
+    document.addEventListener('DOMContentLoaded',()=>{
+      const b=document.getElementById('btnTheme');if(b)b.innerHTML='☀️ Claro';
+    });
+  }
+})();
+
+// ══════════════════════════════════════════
+// MOMIOS — Carga lazy desde ESPN (DraftKings)
+// ══════════════════════════════════════════
+const oddsCache={};
+
+function amToDec(am){
+  const n=parseFloat(am);if(isNaN(n)||n===0)return null;
+  return n>0?+(n/100+1).toFixed(2):+(100/Math.abs(n)+1).toFixed(2);
+}
+function fmtAm(n){
+  if(n==null||n===''||isNaN(parseFloat(n)))return '—';
+  const v=Math.round(parseFloat(n));return v>0?'+'+v:String(v);
+}
+
+async function fetchOdds(eid,lid){
+  if(eid in oddsCache)return oddsCache[eid];
+  oddsCache[eid]=null;
+  try{
+    const r=await fetch(`${BASE}/${lid}/summary?event=${eid}`);
+    if(!r.ok)return null;
+    const d=await r.json();
+    const pc=(d.pickcenter||[]).find(x=>x.homeTeamOdds||x.awayTeamOdds)||null;
+    if(!pc)return null;
+    // Spread home/away desde pointSpread
+    const psHome=pc.pointSpread?.home?.close?.odds??pc.pointSpread?.home?.open?.odds??null;
+    const psAway=pc.pointSpread?.away?.close?.odds??pc.pointSpread?.away?.open?.odds??null;
+    const o={
+      hml:pc.homeTeamOdds?.moneyLine??null,
+      dml:pc.drawOdds?.moneyLine??null,
+      aml:pc.awayTeamOdds?.moneyLine??null,
+      ou:pc.overUnder??null,
+      ovr:pc.overOdds??null,
+      undr:pc.underOdds??null,
+      spread:pc.spread??null,
+      spHome:psHome!=null?parseFloat(psHome):null,
+      spAway:psAway!=null?parseFloat(psAway):null
+    };
+    oddsCache[eid]=o;
+    return o;
+  }catch(e){return null;}
+}
+
+// ── Calcular mercados derivados ──
+function impliedProb(am){
+  const n=parseFloat(am);if(isNaN(n)||n===0)return 0;
+  return n>0?100/(n+100):Math.abs(n)/(Math.abs(n)+100);
+}
+function probToAm(p){
+  if(p<=0.01||p>=0.99)return null;
+  return p>=0.5?Math.round(-(p/(1-p))*100):Math.round(((1-p)/p)*100);
+}
+function calcMarkets(o){
+  // Probs normalizadas
+  const pH=impliedProb(o.hml),pD=impliedProb(o.dml),pA=impliedProb(o.aml);
+  const tot=pH+pD+pA||1;
+  const pH_n=pH/tot,pD_n=pD/tot,pA_n=pA/tot;
+  // Doble Oportunidad
+  const dc1X=probToAm(Math.min(pH_n+pD_n,.98));
+  const dcX2=probToAm(Math.min(pD_n+pA_n,.98));
+  const dc12=probToAm(Math.min(pH_n+pA_n,.98));
+  // BTTS estimado desde O/U
+  const pOver=impliedProb(o.ovr||o.overOdds);
+  const pBtts=Math.min(pOver*1.22,.82);
+  const bttsY=probToAm(pBtts), bttsN=probToAm(1-pBtts);
+  return{dc1X,dcX2,dc12,bttsY,bttsN};
+}
+
+function mlToImplied(am){
+  const n=parseFloat(am); if(isNaN(n)||n===0)return 50;
+  return Math.round(n>0?100/(n+100)*100:Math.abs(n)/(Math.abs(n)+100)*100);
+}
+function addToPronostico(e,eid,label,am,local,visita){
+  e.stopPropagation();
+  const prob=mlToImplied(am);
+  const p=todos.find(x=>x.id===eid);
+  if(!p)return;
+  const fullLabel=label+' ('+fmtAm(am)+')';
+  // Permitir múltiples del mismo partido
+  tkActivo.push({pid:eid,partido:local+' vs '+visita,liga:p.liga,label:fullLabel,prob});
+  actualizarBurbuja();
+  if(tkVisible)renderTicketActivo();
+  // Feedback visual en el botón
+  const btn=e.target.closest('.odd-pronostico');
+  if(btn){const orig=btn.textContent;btn.textContent='✓';btn.style.color='var(--gr)';setTimeout(()=>{btn.textContent=orig;btn.style.color='';},1200);}
+}
+function mkBtn(eid,mkt,label,am,localEsc,visitaEsc,selKey,isEst){
+  const dec=amToDec(am);
+  const isSel=!!ticket[pickKey(eid,mkt,selKey)];
+  const estTag=isEst?'<span class="odds-est">~est</span>':'';
+  return `<div class="odd-wrap">
+    <button class="odd-btn${isSel?' sel':''}" onclick="pickOdd(event,'${eid}','${selKey}',${am},'${localEsc}','${visitaEsc}','${mkt}')">
+      <span class="odd-lbl">${label}${estTag}</span>
+      <span class="odd-val">${fmtAm(am)}</span>
+      <span class="odd-dec">${dec?dec+'x':''}</span>
+    </button>
+    <button class="odd-pronostico" onclick="addToPronostico(event,'${eid}','${label}',${am},'${localEsc}','${visitaEsc}')" title="Agregar al ticket de pronósticos">+P</button>
+  </div>`;
+}
+
+function injectOdds(eid,local,visita,odds){
+  const el=document.getElementById('odds-'+eid);
+  if(!el)return;
+  if(!odds||(!odds.hml&&!odds.aml)){el.innerHTML='';el.className='';return;}
+  const {hml,dml,aml,ou,ovr,undr,spread}=odds;
+  const localEsc=local.replace(/'/g,"\'"),visitaEsc=visita.replace(/'/g,"\'");
+  const cm=calcMarkets(odds);
+  // Spread (línea de goles): ESPN da hándicap de goles en spread
+  // spread suele ser -1.5 para favorito → +1.5 goles = away spread odds
+  const spAm=odds.spAway||null; // odds del spread +1.5
+  const spLine=Math.abs(spread||0);
+
+  // ──── COLUMNA IZQUIERDA: Resultado + Doble Oportunidad ────
+  let colL=``;
+
+  // 1X2
+  colL+=`<div class="odds-mkt"><div class="odds-mkt-lbl">⚽ Resultado 1X2</div><div class="odds-row">`;
+  colL+=mkBtn(eid,'1x2','1 Local',hml,localEsc,visitaEsc,'home',false);
+  if(dml!=null)colL+=mkBtn(eid,'1x2','X Empate',dml,localEsc,visitaEsc,'draw',false);
+  colL+=mkBtn(eid,'1x2','2 Visita',aml,localEsc,visitaEsc,'away',false);
+  colL+=`</div></div>`;
+
+  // Doble Oportunidad
+  if(cm.dc1X&&cm.dcX2&&cm.dc12){
+    colL+=`<div class="odds-mkt"><div class="odds-mkt-lbl">🔁 Doble Oport.</div><div class="odds-row">`;
+    colL+=mkBtn(eid,'dc','1X',cm.dc1X,localEsc,visitaEsc,'dc_1x',true);
+    colL+=mkBtn(eid,'dc','X2',cm.dcX2,localEsc,visitaEsc,'dc_x2',true);
+    colL+=mkBtn(eid,'dc','12',cm.dc12,localEsc,visitaEsc,'dc_12',true);
+    colL+=`</div></div>`;
+  }
+
+  // ──── COLUMNA DERECHA: Goles + Hándicap + Ambos Anotan ────
+  let colR=``;
+
+  // Goles O/U
+  if(ovr!=null||ou!=null){
+    colR+=`<div class="odds-mkt"><div class="odds-mkt-lbl">📊 Goles Totales</div><div class="odds-row">`;
+    if(spAm!=null){
+      colR+=mkBtn(eid,'goals','Más +1.5',spAm,localEsc,visitaEsc,'over_15',false);
+    }else{
+      const pO25=impliedProb(ovr);const pO15=Math.min(pO25*1.38,.95);
+      const am15=probToAm(pO15);
+      if(am15)colR+=mkBtn(eid,'goals','Más +1.5',am15,localEsc,visitaEsc,'over_15',true);
+    }
+    if(ovr!=null)colR+=mkBtn(eid,'goals',`Más +${ou||2.5}`,ovr,localEsc,visitaEsc,'over_25',false);
+    if(undr!=null)colR+=mkBtn(eid,'goals',`Menos -${ou||2.5}`,undr,localEsc,visitaEsc,'under_25',false);
+    colR+=`</div></div>`;
+  }
+
+  // Hándicap
+  if(spread!=null&&odds.spHome!=null){
+    colR+=`<div class="odds-mkt"><div class="odds-mkt-lbl">🎯 Hándicap</div><div class="odds-row">`;
+    colR+=mkBtn(eid,'hcp',`Local ${spread>0?'+':''}${spread}g`,odds.spHome,localEsc,visitaEsc,'hcp_home',false);
+    colR+=mkBtn(eid,'hcp',`Visita +${Math.abs(spread)}g`,spAm||odds.spAway,localEsc,visitaEsc,'hcp_away',false);
+    colR+=`</div></div>`;
+  }
+
+  // Ambos Anotan
+  if(cm.bttsY&&cm.bttsN){
+    colR+=`<div class="odds-mkt"><div class="odds-mkt-lbl">🥅 Ambos Anotan</div><div class="odds-row">`;
+    colR+=mkBtn(eid,'btts','✅ Sí',cm.bttsY,localEsc,visitaEsc,'btts_si',true);
+    colR+=mkBtn(eid,'btts','❌ No',cm.bttsN,localEsc,visitaEsc,'btts_no',true);
+    colR+=`</div></div>`;
+  }
+
+  const html=`<div class="odds-wrap">
+    <div class="odds-col">${colL}</div>
+    <div class="odds-col-div"></div>
+    <div class="odds-col">${colR}</div>
+  </div>`;
+  el.className='';
+  el.innerHTML=html;
+}
+
+// Cargar momios de todos los partidos visibles
+function loadAllOdds(){
+  const visible=todos.filter(p=>{
+    if(ligaActiva!=='todas'&&p.lid!==ligaActiva)return false;
+    return true;
+  });
+  visible.forEach(p=>{
+    if(p.id in oddsCache){injectOdds(p.id,p.local,p.visit,oddsCache[p.id]);return;}
+    const el=document.getElementById('odds-'+p.id);
+    if(!el)return;
+    el.className='odds-sk';el.textContent='⏳ Cargando momios...';
+    fetchOdds(p.id,p.lid).then(o=>injectOdds(p.id,p.local,p.visit,o));
+  });
+}
+
+// ══════════════════════════════════════════
+// PARLAY TICKET
+// ══════════════════════════════════════════
+let ticket={};
+
+function pickKey(eid,mkt,sel){return eid+'::'+mkt+'::'+sel;}
+function pickOdd(e,eid,sel,ml,local,visita,mkt='1x2'){
+  e.stopPropagation();
+  const k=pickKey(eid,mkt,sel);
+  if(ticket[k]){delete ticket[k];}
+  else{
+    const LABELS={
+      home:local,away:visita,draw:'Empate',
+      dc_1x:'1X (Local o Empate)',dc_x2:'X2 (Empate o Visita)',dc_12:'12 (Local o Visita)',
+      over_15:'Más +1.5 goles',over_25:'Más +2.5 goles',under_25:'Menos -2.5 goles',
+      hcp_home:'Hándicap Local',hcp_away:'Hándicap Visita',
+      btts_si:'Ambos Anotan SÍ',btts_no:'Ambos Anotan NO'
+    };
+    const selName=LABELS[sel]||sel;
+    ticket[k]={k,eid,sel,mkt,ml,local,visita,matchName:local+' vs '+visita,selName};
+  }
+  if(oddsCache[eid])injectOdds(eid,local,visita,oddsCache[eid]);
+  renderTicket();updBadge();
+}
+
+function toggleParlay(){document.getElementById('tkPanel').classList.toggle('open');}
+
+function updBadge(){
+  const n=Object.keys(ticket).length;
+  const b=document.getElementById('tkBadge');
+  b.textContent=n;b.style.display=n?'flex':'none';
+  document.getElementById('tkCount').textContent=n;
+}
+
+function removePick(k){
+  const eid=ticket[k]?.eid;
+  delete ticket[k];
+  if(eid){const p=todos.find(x=>x.id===eid);if(p&&oddsCache[eid])injectOdds(eid,p.local,p.visit,oddsCache[eid]);}
+  renderTicket();updBadge();
+}
+
+function clearTicket(){
+  const eids=[...new Set(Object.values(ticket).map(v=>v.eid))];
+  ticket={};
+  eids.forEach(eid=>{
+    const p=todos.find(x=>x.id===eid);
+    if(p&&oddsCache[eid])injectOdds(eid,p.local,p.visit,oddsCache[eid]);
+  });
+  renderTicket();updBadge();
+}
+
+function renderTicket(){
+  const body=document.getElementById('tkBody');
+  const picks=Object.entries(ticket);
+  if(!picks.length){
+    body.innerHTML='<div class="tk-empty">Selecciona los momios de los partidos para armar tu parlay 🎯</div>';
+    document.getElementById('tkMulti').textContent='—';
+    document.getElementById('tkPayout').style.display='none';
+    return;
+  }
+  let parlay=1.0,html='';
+  picks.forEach(([k,pk])=>{
+    const dec=amToDec(pk.ml)||1;parlay*=dec;
+    const ico=pk.sel==='home'?'🔵':pk.sel==='draw'?'🟡':'🔴';
+    html+=`<div class="tk-pick">
+      <div class="tk-pick-info">
+        <div class="tk-pick-match">${pk.matchName}</div>
+        <div class="tk-pick-sel">${ico} ${pk.selName}</div>
+      </div>
+      <span class="tk-pick-odd">${fmtAm(pk.ml)}</span>
+      <button class="tk-remove" onclick="removePick('${pk.k||k}')">✕</button>
+    </div>`;
+  });
+  body.innerHTML=html;
+  const pRound=(Math.round(parlay*100)/100);
+  document.getElementById('tkMulti').textContent=pRound+'x';
+  const stake=parseFloat(document.getElementById('tkStake')?.value)||0;
+  if(stake>0){
+    const pago=(stake*parlay).toFixed(2);
+    const gan=(stake*(parlay-1)).toFixed(2);
+    document.getElementById('tkPayAmt').textContent='$'+parseFloat(pago).toLocaleString('es-MX',{minimumFractionDigits:2});
+    document.getElementById('tkPayGan').textContent='+$'+parseFloat(gan).toLocaleString('es-MX',{minimumFractionDigits:2})+' ganancia neta';
+    document.getElementById('tkPayout').style.display='block';
+  }else{
+    document.getElementById('tkPayout').style.display='none';
+  }
+}
+
+function shareTicket(){
+  const picks=Object.entries(ticket);if(!picks.length)return;
+  let txt='🎟️ MI PARLAY\n\n';
+  let parlay=1;
+  picks.forEach(([,pk])=>{
+    const ico=pk.sel==='home'?'1️⃣':pk.sel==='draw'?'〰️':'2️⃣';
+    const dec=amToDec(pk.ml)||1;parlay*=dec;
+    txt+=`${ico} ${pk.selName}\n   ${pk.matchName}\n   Momio: ${fmtAm(pk.ml)} (${(Math.round(dec*100)/100)}x)\n\n`;
+  });
+  const stake=parseFloat(document.getElementById('tkStake')?.value)||0;
+  txt+=`📊 Cuota combinada: ${(Math.round(parlay*100)/100)}x\n`;
+  if(stake)txt+=`💰 Apuesta: $${stake} → Pago: $${(stake*parlay).toFixed(2)}`;
+  navigator.clipboard?.writeText(txt).then(()=>alert('✅ Ticket copiado al portapapeles'));
+}
+
+
+// ══════════════════════════════════════════
+// ÚLTIMOS 5 RESULTADOS por equipo
+// ══════════════════════════════════════════
+const l5Cache={};
+
+async function loadLast5(p){
+  const el=document.getElementById('dp-last5');
+  if(!el)return;
+  el.innerHTML='<div class="loading" style="padding:30px;text-align:center"><div class="spin"></div><br>Cargando forma...</div>';
+
+  const key=p.id;
+  if(l5Cache[key]){renderLast5(p,l5Cache[key]);return;}
+
+  // Obtener team IDs del summary
+  const summ=await getSummary(p);
+  const comps=summ?.header?.competitions?.[0]?.competitors||
+               summ?.boxscore?.teams||[];
+  // Extraer home/away y sus ids
+  let teams=[];
+  // Intentar header primero
+  const hdr=summ?.header?.competitions?.[0]?.competitors;
+  if(hdr&&hdr.length>=2){
+    teams=[
+      {id:hdr.find(c=>c.homeAway==='home')?.id||hdr[0].id, name:p.local, logo:p.logoL, ha:'home'},
+      {id:hdr.find(c=>c.homeAway==='away')?.id||hdr[1].id, name:p.visit, logo:p.logoV, ha:'away'}
+    ];
+  } else {
+    el.innerHTML='<div style="padding:20px;text-align:center;color:var(--sb)">Sin datos de forma disponibles</div>';
+    return;
+  }
+
+  const results=await Promise.all(teams.map(async t=>{
+    try{
+      const r=await fetch(`${BASE}/${p.lid}/teams/${t.id}/schedule`);
+      if(!r.ok)return{...t,games:[]};
+      const d=await r.json();
+      const finished=(d.events||[]).filter(e=>
+        e.competitions?.[0]?.status?.type?.state==='post'
+      ).slice(-5);
+      const games=finished.map(ev=>{
+        const comp=ev.competitions[0];
+        const home=comp.competitors.find(c=>c.homeAway==='home')||comp.competitors[0];
+        const away=comp.competitors.find(c=>c.homeAway==='away')||comp.competitors[1];
+        const isHome=home.id===t.id||home.team?.id===t.id;
+        const mine=isHome?home:away;
+        const rival=isHome?away:home;
+        const getScore=x=>{
+          const s=x.score;
+          if(!s&&s!==0)return'?';
+          if(typeof s==='object')return s.displayValue??s.value??'?';
+          return String(s);
+        };
+        const ms=parseInt(getScore(mine)||0), rs=parseInt(getScore(rival)||0);
+        const res=ms>rs?'G':ms<rs?'P':'E';
+        return{
+          res, ms:getScore(mine), rs:getScore(rival),
+          rival:rival.team?.abbreviation||rival.team?.shortDisplayName||'?',
+          rivalFull:rival.team?.displayName||'?',
+          isHome,
+          date:ev.date?.slice(0,10)||''
+        };
+      });
+      return{...t,games};
+    }catch(e){return{...t,games:[]};}
+  }));
+
+  l5Cache[key]=results;
+  renderLast5(p,results);
+}
+
+function renderLast5(p,teams){
+  const el=document.getElementById('dp-last5');
+  if(!el)return;
+  const resIco={G:'G',E:'E',P:'P'};
+  let html='<div class="l5-wrap">';
+
+  teams.forEach(t=>{
+    if(!t.games.length){
+      html+=`<div class="l5-team"><div class="l5-hdr">${t.logo?`<img class="l5-logo" src="${t.logo}" onerror="this.style.display='none'">`:'⚽'}<span class="l5-name">${t.name}</span></div><p style="color:var(--sb);font-size:.78rem">Sin resultados recientes</p></div>`;
+      return;
+    }
+    const ganados=t.games.filter(g=>g.res==='G').length;
+    const empates=t.games.filter(g=>g.res==='E').length;
+    const perdidos=t.games.filter(g=>g.res==='P').length;
+    const pts=ganados*3+empates;
+    // Racha actual
+    const racha=[];
+    for(let i=t.games.length-1;i>=0;i--){
+      if(t.games[i].res===t.games[t.games.length-1].res)racha.push(t.games[i].res);
+      else break;
+    }
+
+    html+=`<div class="l5-team">
+      <div class="l5-hdr">
+        ${t.logo?`<img class="l5-logo" src="${t.logo}" onerror="this.style.display='none'">`:'⚽'}
+        <span class="l5-name">${t.name}</span>
+        <span style="margin-left:auto;font-size:.7rem;color:var(--sb)">${ganados}G ${empates}E ${perdidos}P · <b style="color:var(--az)">${pts}pts</b></span>
+      </div>
+      <div class="l5-games">
+        ${t.games.map(g=>`
+        <div class="l5-g" title="${g.rivalFull} (${g.date})">
+          <div class="l5-res ${g.res==='G'?'g':g.res==='E'?'e':'p'}">${resIco[g.res]}</div>
+          <div class="l5-sc">${g.ms}-${g.rs}</div>
+          <div class="l5-rival"><span style="font-weight:900;color:${g.isHome?'var(--gr)':'var(--or)'}">${g.isHome?'L':'V'}</span> ${g.rival}</div>
+        </div>`).join('')}
+      </div>
+      <div class="l5-racha" style="margin-top:6px;font-size:.68rem;color:var(--sb)">
+        Racha: ${t.games.slice(-3).map(g=>`<span style="color:${g.res==='G'?'var(--gr)':g.res==='E'?'var(--or)':'var(--ac)'};font-weight:800">${g.res}</span>`).join(' → ')}
+      </div>
+    </div>`;
+  });
+
+  html+='</div>';
+  el.innerHTML=html;
+}
+
+// ══════════════════════════════════════════
+// MEJORAR renderAI — Recomendaciones claras
+// ══════════════════════════════════════════
+const _oldRenderAI=typeof renderAI==='function'?renderAI:null;
+
+
+
+
+// ══════════════════════════════════════════
+// GQVVS AI — Veredicto/Recomendaciones
+// ══════════════════════════════════════════
+function renderVeredictoAI(p){
+  const el=document.getElementById('dp-ai');
+  if(!el)return;
+  const g=genAI(p);
+
+  let verd='',verdSub='',verdIcon='⚖️';
+  let tips=[];
+
+  if(g.pH>=56){
+    verdIcon='✅'; verd='Local favorito ('+g.pH+'%)';
+    verdSub=p.local+' tiene ventaja clara. La línea 1X es la más segura.';
+    tips.push({t:'✅ Recomendado: '+p.local+' gana o no pierde (1X) · Prob. '+g.p1X+'%',c:'green'});
+  } else if(g.pA>=46){
+    verdIcon='⚡'; verd='Visitante con oportunidad ('+g.pA+'%)';
+    verdSub=p.visit+' tiene opciones reales. Considerar X2 o victoria directa.';
+    tips.push({t:'🔵 X2 viable — empate o visita ocurre '+g.pX2+'% del tiempo',c:'green'});
+  } else {
+    verdIcon='⚖️'; verd='Partido muy equilibrado';
+    verdSub='Diferencia mínima entre equipos. Mejor apostar a mercados alternativos.';
+    tips.push({t:'⚠️ Evitar apuesta directa 1X2 — diferencia menor al 5%',c:'warn'});
+  }
+
+  if(g.o25>=58) tips.push({t:'⚽ Más de 2.5 goles probable ('+g.o25+'%) — partido abierto',c:'green'});
+  else if(g.o25<42) tips.push({t:'🔒 Menos de 2.5 goles probable ('+(100-g.o25)+'%) — partido cerrado',c:'green'});
+
+  if(g.btts>=58) tips.push({t:'🥅 Ambos anotan SÍ ('+g.btts+'%) — ambos equipos llegan al gol',c:'green'});
+  else if(g.btts<40) tips.push({t:'🛡️ Ambos anotan NO ('+(100-g.btts)+'%) — probable portería a cero',c:'warn'});
+
+  if(g.p1X>=82) tips.push({t:'💡 Doble oportunidad 1X muy segura ('+g.p1X+'%) aunque la cuota será baja',c:'warn'});
+
+  tips.push({t:'📊 Estimados: '+g.tG+' goles · '+g.co+' córners · '+g.am+' tarjetas amarillas',c:'info'});
+
+  const colMap={green:'ai-tip',warn:'ai-tip warn',bad:'ai-tip bad',info:'ai-tip'};
+
+  el.innerHTML=`
+  <div style="padding:10px 14px">
+    <div class="ai-veredicto">
+      <div class="ai-verd-lbl">🤖 Análisis GQVVS AI</div>
+      <div class="ai-verd-txt">${verdIcon} ${verd}</div>
+      <div class="ai-verd-sub">${verdSub}</div>
+    </div>
+    ${tips.map(t=>`<div class="${colMap[t.c]||'ai-tip'}">${t.t}</div>`).join('')}
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:14px">
+      ${[
+        {l:'Local gana',   v:g.pH+'%', c:'var(--gr)'},
+        {l:'Empate',       v:g.pD+'%', c:'var(--or)'},
+        {l:'Visita gana',  v:g.pA+'%', c:'var(--ac)'},
+        {l:'Más 2.5 goles',v:g.o25+'%',c:'var(--az)'},
+        {l:'Ambos anotan', v:g.btts+'%',c:'var(--az)'},
+        {l:'Más 1.5 goles',v:Math.min(99,g.o25+18)+'%',c:'var(--az)'},
+      ].map(x=>`<div style="background:var(--card);border:1px solid var(--bd);border-radius:11px;padding:10px 6px;text-align:center">
+        <div style="font-size:1.1rem;font-weight:900;color:${x.c}">${x.v}</div>
+        <div style="font-size:.6rem;color:var(--sb);margin-top:2px">${x.l}</div>
+      </div>`).join('')}
+    </div>
+    <div style="text-align:center;padding:10px 0 2px;font-size:.6rem;color:var(--sb)">⚠️ Análisis generado por IA. No constituye asesoría financiera.</div>
+  </div>`;
+}
+</script>
+
+<!-- Parlay Ticket FAB -->
+<button class="tk-fab" id="tkFab" onclick="toggleParlay()">
+  🎟️<span class="tk-bdg" id="tkBadge" style="display:none">0</span>
+  <span class="fab-lbl">Parlay</span>
+</button>
+
+<!-- Parlay Panel -->
+<div class="tk-panel" id="tkPanel">
+  <div class="tk-head">
+    🎟️ Ticket Parlay
+    <button class="tk-close-btn" onclick="toggleParlay()">✕</button>
+  </div>
+  <div class="tk-body" id="tkBody">
+    <div class="tk-empty">Selecciona los momios de los partidos para armar tu parlay 🎯</div>
+  </div>
+  <div class="tk-footer">
+    <div class="tk-stat-row">Picks: <b id="tkCount">0</b> &nbsp;·&nbsp; Cuota combinada:</div>
+    <div class="tk-cuota-big" id="tkMulti">—</div>
+    <div class="tk-stake-wrap">
+      <span class="tk-stake-sym">$</span>
+      <input class="tk-stake-inp" id="tkStake" type="number" placeholder="Tu apuesta..." min="1" step="10" oninput="renderTicket()">
+      <span class="tk-stake-sym">MXN</span>
+    </div>
+    <div class="tk-payout-box" id="tkPayout" style="display:none">
+      <div class="tk-payout-lbl">Pago estimado</div>
+      <div class="tk-payout-amt" id="tkPayAmt">$0</div>
+      <div class="tk-payout-gan" id="tkPayGan">+$0 ganancia</div>
+    </div>
+    <div class="tk-btn-row">
+      <button class="tk-btn-clear" onclick="clearTicket()">🗑️ Limpiar</button>
+      <button class="tk-btn-share" onclick="shareTicket()">📋 Copiar ticket</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
